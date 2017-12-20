@@ -1,0 +1,23 @@
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\bin\Debug\SchoolProject.exe.config
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\bin\Debug\SchoolProject.exe
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\bin\Debug\SchoolProject.pdb
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.exe
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.pdb
+c:\users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.frmLogin.resources
+C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.StudentDetailList.resources
+C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\bin\Debug\ClouReaderAPI.dll
+C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.StudentInfo_form.resources
+C:\Users\admin\Documents\Visual Studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.RFIDMng.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\bin\Debug\SchoolProject.exe.config
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.exe
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.RFIDMng.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.frmLogin.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.StudentDetailList.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.StudentInfo_form.resources
+C:\Users\admin\Documents\GitHub\SchoolProject\SchoolProject\obj\Debug\SchoolProject.csproj.GenerateResource.Cache
+C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.csprojResolveAssemblyReference.cache
+C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject\obj\Debug\SchoolProject.frmStudentRegistration.resources
