@@ -1,2 +1,1 @@
-# SP1
-SP
+# SchoolProject
