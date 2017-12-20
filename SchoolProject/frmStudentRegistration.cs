@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
-using School_Project_Devendra.Database;
+using SchoolProject.Database;
 
 namespace School_Project_Devendra
 {
@@ -18,12 +18,12 @@ namespace School_Project_Devendra
         StudentDAL stddal = new StudentDAL();
         string img;
         string registerno;
-        public Form1()
+        public frmStudentRegistration()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
             GetId();
             ShowData();

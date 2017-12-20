@@ -1,4 +1,4 @@
-﻿namespace SchoolProject
+﻿namespace School_Project_Devendra
 {
     partial class frmStudentRegistration
     {
@@ -44,7 +44,7 @@
             this.txtRollNo = new System.Windows.Forms.TextBox();
             this.txtClass = new System.Windows.Forms.TextBox();
             this.txtHomeAddress = new System.Windows.Forms.TextBox();
-            this.txtContactNo = new System.Windows.Forms.TextBox();
+            this.txtGuardianContactNo = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -72,6 +72,8 @@
             this.btnSaveAndUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lblRegistrationNo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentPhoto)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -231,14 +233,14 @@
             this.txtHomeAddress.Size = new System.Drawing.Size(258, 58);
             this.txtHomeAddress.TabIndex = 59;
             // 
-            // txtContactNo
+            // txtGuardianContactNo
             // 
-            this.txtContactNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactNo.Location = new System.Drawing.Point(618, 263);
-            this.txtContactNo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContactNo.Name = "txtContactNo";
-            this.txtContactNo.Size = new System.Drawing.Size(182, 20);
-            this.txtContactNo.TabIndex = 57;
+            this.txtGuardianContactNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuardianContactNo.Location = new System.Drawing.Point(618, 263);
+            this.txtGuardianContactNo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGuardianContactNo.Name = "txtGuardianContactNo";
+            this.txtGuardianContactNo.Size = new System.Drawing.Size(182, 20);
+            this.txtGuardianContactNo.TabIndex = 57;
             // 
             // label15
             // 
@@ -510,11 +512,27 @@
             this.btnInsert.Text = "Insert";
             this.btnInsert.UseVisualStyleBackColor = true;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lblRegistrationNo
+            // 
+            this.lblRegistrationNo.AutoSize = true;
+            this.lblRegistrationNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRegistrationNo.Location = new System.Drawing.Point(544, 79);
+            this.lblRegistrationNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRegistrationNo.Name = "lblRegistrationNo";
+            this.lblRegistrationNo.Size = new System.Drawing.Size(177, 24);
+            this.lblRegistrationNo.TabIndex = 95;
+            this.lblRegistrationNo.Text = "Student Registration";
+            // 
             // frmStudentRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 681);
+            this.Controls.Add(this.lblRegistrationNo);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSaveAndUpdate);
@@ -545,7 +563,7 @@
             this.Controls.Add(this.txtClass);
             this.Controls.Add(this.txtHomeAddress);
             this.Controls.Add(this.txtClassTeacher);
-            this.Controls.Add(this.txtContactNo);
+            this.Controls.Add(this.txtGuardianContactNo);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
@@ -588,7 +606,7 @@
         public System.Windows.Forms.TextBox txtRollNo;
         public System.Windows.Forms.TextBox txtClass;
         public System.Windows.Forms.TextBox txtHomeAddress;
-        public System.Windows.Forms.TextBox txtContactNo;
+        public System.Windows.Forms.TextBox txtGuardianContactNo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
@@ -616,6 +634,8 @@
         private System.Windows.Forms.Button btnSaveAndUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lblRegistrationNo;
 
     }
 }
