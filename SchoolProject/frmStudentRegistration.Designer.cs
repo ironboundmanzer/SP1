@@ -497,7 +497,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(468, 591);
+            this.btnDelete.Location = new System.Drawing.Point(435, 591);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 93;
@@ -506,7 +506,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(272, 591);
+            this.btnInsert.Location = new System.Drawing.Point(253, 591);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 94;
@@ -529,7 +529,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(618, 591);
+            this.btnClear.Location = new System.Drawing.Point(617, 591);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 96;
@@ -541,7 +541,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 681);
+            this.ClientSize = new System.Drawing.Size(1023, 625);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblRegistrationNo);
             this.Controls.Add(this.btnInsert);

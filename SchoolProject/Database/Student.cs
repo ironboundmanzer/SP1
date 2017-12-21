@@ -53,7 +53,7 @@ namespace SchoolProject.Database
 
     class StudentDAL
     {
-        string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
+        string cs = @"Data Source=DESKTOP-IIFS0VC\SQLEXPRESS;Initial Catalog=School;Integrated Security=True";
         SqlConnection con = null;
         SqlCommand cmd = null;
 
