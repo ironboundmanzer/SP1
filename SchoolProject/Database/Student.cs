@@ -37,7 +37,7 @@ namespace SchoolProject.Database
         public string StudentPhoto { get; set; }
     }
 
-    //  Data Show 
+    //  this class Show Student Data on DataGridView
     class StudentforShow
     {
         public string StudentId { get; set; }
@@ -57,6 +57,7 @@ namespace SchoolProject.Database
         SqlConnection con = null;
         SqlCommand cmd = null;
 
+        //  One Image Show
         string img;
         public string ShowStudentImage(string studentid)
         {
@@ -77,6 +78,7 @@ namespace SchoolProject.Database
             return img;
         }
 
+        // Show student Data on DataGridView
         public List<StudentforShow> ShowStudent()
         {
             List<StudentforShow> lststudent = new List<StudentforShow>();
@@ -117,6 +119,7 @@ namespace SchoolProject.Database
             return lststudent;
         }
 
+        // Find Maximum StudentId
         public string GetId()
         {
             con = new SqlConnection(cs);
@@ -127,6 +130,7 @@ namespace SchoolProject.Database
             return id;
         }
 
+        // Student Registrationg
         public void StudentRegistration(Student std)
         {
             try
@@ -165,6 +169,55 @@ namespace SchoolProject.Database
             }
         }
 
+        //  Show Student Data on Textbox
+        public Student ShowDataOnTextBox(string studentid)
+        {
+            Student std = new Student();
+            con = new SqlConnection(cs);
+            cmd = new SqlCommand("Select * from tblStudentInfo where StudentId=@studentId", con);
+            try
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@studentId", studentid);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                if (sdr.HasRows)
+                {
+                    while (sdr.Read())
+                    {
+                        std.Name = sdr["Name"].ToString();
+                        std.RollNo = sdr["RollNo"].ToString();
+                        std.DOB = sdr["DOB"].ToString();
+                        std.Class = sdr["Class"].ToString();
+                        std.BloodGroup = sdr["BloodGroup"].ToString();
+                        std.HomeAddress = sdr["HomeAddress"].ToString();
+                        std.SiblingInformation = sdr["SiblingInformation"].ToString();
+                        std.ClassTeacher = sdr["ClassTeacher"].ToString();
+                        std.ClassTeacherContactNo = sdr["ClassTeacherContactNo"].ToString();
+                        std.FatherName = sdr["FatherName"].ToString();
+                        std.Gender = sdr["Gender"].ToString();
+                        std.AadharNo = sdr["AadharNo"].ToString();
+                        std.Section = sdr["Section"].ToString();
+                        std.GuardianName = sdr["GuardianName"].ToString();
+                        std.GuardianContactNo = sdr["GuardianContactNo"].ToString();
+                        std.JoinedSchoolDate = sdr["JoinedSchoolDate"].ToString();
+                        std.Notes = sdr["Notes"].ToString();
+                        std.StudentPhoto = sdr["StudentPhoto"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return std;
+        }
+
+        //  Student Data Update and Save
         public void StudentUpdateAndSave(Student std)
         {
             try
@@ -203,6 +256,7 @@ namespace SchoolProject.Database
             }
         }
 
+        // Student Data Delete By StudentId
         public void StudentDelete(string studentId)
         {
             try

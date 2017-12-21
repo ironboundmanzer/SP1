@@ -74,6 +74,7 @@
             this.btnInsert = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.lblRegistrationNo = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentPhoto)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -523,15 +524,25 @@
             this.lblRegistrationNo.Location = new System.Drawing.Point(544, 79);
             this.lblRegistrationNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRegistrationNo.Name = "lblRegistrationNo";
-            this.lblRegistrationNo.Size = new System.Drawing.Size(177, 24);
+            this.lblRegistrationNo.Size = new System.Drawing.Size(0, 24);
             this.lblRegistrationNo.TabIndex = 95;
-            this.lblRegistrationNo.Text = "Student Registration";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(618, 591);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 96;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmStudentRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 681);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblRegistrationNo);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDelete);
@@ -636,6 +647,7 @@
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label lblRegistrationNo;
+        private System.Windows.Forms.Button btnClear;
 
     }
 }

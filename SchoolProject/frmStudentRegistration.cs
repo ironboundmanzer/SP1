@@ -42,7 +42,7 @@ namespace School_Project_Devendra
             {
                 pbStudentPhoto.Image = Image.FromFile(openFileDialog1.FileName);
             }
-            //img = ImageToBase64(pbStudentPhoto.Image, System.Drawing.Imaging.ImageFormat.Png);
+            img = ImageToBase64(pbStudentPhoto.Image, System.Drawing.Imaging.ImageFormat.Png);
             //pictureBox1.Image = Base64ToImage(img);
         }
 
@@ -106,22 +106,39 @@ namespace School_Project_Devendra
         private void GetId()
         {
             int yyyy = DateTime.Now.Year;
-            //string id = stddal.GetId();
-            // registerno = yyyy + "" + id + 1;
-            registerno = "20170001";
-            MessageBox.Show(registerno);
+            string id = stddal.GetId();
+            int stdid = Convert.ToInt32(id) + 1;
+            registerno = yyyy + "" + Convert.ToString(stdid);
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Student std = new Student();
-            //  std.Name = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             std.StudentId = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
             lblRegistrationNo.Text = std.StudentId;
 
-            string image = stddal.ShowStudentImage(std.StudentId);
-            pbStudentPhoto.Image = Base64ToImage(image);
+            std = stddal.ShowDataOnTextBox(std.StudentId);
+            txtName.Text = std.Name;
+            txtRollNo.Text = std.RollNo;
+            txtDOB.Text = std.DOB;
+            txtClass.Text = std.Class;
+            txtBloodGroup.Text = std.BloodGroup;
+            txtHomeAddress.Text = std.HomeAddress;
+            txtSiblingInformation.Text = std.SiblingInformation;
+            txtClassTeacher.Text = std.ClassTeacher;
+            txtClassTeacherContactNo.Text = std.ClassTeacherContactNo;
+            txtFatherName.Text = std.FatherName;
+            txtGender.Text = std.Gender;
+            txtAadharNo.Text = std.AadharNo;
+            txtSection.Text = std.Section;
+            txtGuardianName.Text = std.GuardianName;
+            txtGuardianContactNo.Text = std.GuardianContactNo;
+            txtJoinedSchoolDate.Text = std.JoinedSchoolDate;
+            txtNotes.Text = std.Notes;
+            string img = std.StudentPhoto;
+
+            pbStudentPhoto.Image = Base64ToImage(img);
         }
 
         private void btnSaveAndUpdate_Click(object sender, EventArgs e)
@@ -169,6 +186,27 @@ namespace School_Project_Devendra
                 MessageBox.Show("Please double click on datagridview");
             }
             ShowData();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtName.Text = "";
+            txtRollNo.Text = "";
+            txtDOB.Text = "";
+            txtClass.Text = "";
+            txtBloodGroup.Text = "";
+            txtHomeAddress.Text = "";
+            txtSiblingInformation.Text = "";
+            txtClassTeacher.Text = "";
+            txtClassTeacherContactNo.Text = "";
+            txtFatherName.Text = "";
+            txtGender.Text = "";
+            txtAadharNo.Text = "";
+            txtSection.Text = "";
+            txtGuardianName.Text = "";
+            txtGuardianContactNo.Text = "";
+            txtJoinedSchoolDate.Text = "";
+            txtNotes.Text = "";
         }
 
     }

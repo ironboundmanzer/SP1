@@ -24,3 +24,13 @@ C:\Users\admin\documents\visual studio 2012\Projects\SchoolProject\SchoolProject
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\bin\Debug\SchoolProject.exe.config
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.exe
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.pdb
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\bin\Debug\SchoolProject.exe
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\bin\Debug\SchoolProject.pdb
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\School_Project_Devendra.frmStudentRegistration.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.RFIDMng.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmLogin.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.StudentDetailList.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.StudentInfo_form.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.csproj.GenerateResource.Cache

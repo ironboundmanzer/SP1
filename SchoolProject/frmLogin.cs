@@ -46,12 +46,7 @@ namespace SchoolProject
             passingloginIdName = txtLogin.Text;
           
             StudentDetailList sdObj = new StudentDetailList();
-            sdObj.Show();
-
-           
-
-            
-            
+            sdObj.Show(); 
         }
 
         private void Form1_Load(object sender, EventArgs e)
