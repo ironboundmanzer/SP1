@@ -42,22 +42,21 @@ namespace SchoolProject.Database
     {
         public string StudentId { get; set; }
         public string Name { get; set; }
+        public string RollNo { get; set; }
         public string Gender { get; set; }
         public string DOB { get; set; }
         public string Class { get; set; }
         public string Section { get; set; }
-        public string RollNo { get; set; }
-        public string EnrollmentYear { get; set; }
         public string AadharNo { get; set; }
     }
 
     class StudentDAL
     {
-        string cs = @"Data Source=DESKTOP-IIFS0VC\SQLEXPRESS;Initial Catalog=School;Integrated Security=True";
+        string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
         SqlConnection con = null;
         SqlCommand cmd = null;
 
-        //  One Image Show
+        //  Student Image Show Method
         string img;
         public string ShowStudentImage(string studentid)
         {
@@ -102,7 +101,6 @@ namespace SchoolProject.Database
                         std.Class = sdr["Class"].ToString();
                         std.Section = sdr["Section"].ToString();
                         std.RollNo = sdr["RollNo"].ToString();
-                        std.EnrollmentYear = sdr["EnrollmentYear"].ToString();
                         std.AadharNo = sdr["AadharNo"].ToString();
                         lststudent.Add(std);
                     }
@@ -123,7 +121,8 @@ namespace SchoolProject.Database
         public string GetId()
         {
             con = new SqlConnection(cs);
-            cmd = new SqlCommand("select max(substring(StudentId,5,4)) as studentid from tblStudentInfo", con);
+            cmd = new SqlCommand("select max(StudentId) from tblStudentInfo", con);
+            //cmd = new SqlCommand("select max(substring(StudentId,5,4)) as studentid from tblStudentInfo", con);
             cmd.CommandType = CommandType.Text;
             con.Open();
             string id = (string)cmd.ExecuteScalar();

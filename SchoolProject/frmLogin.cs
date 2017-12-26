@@ -54,6 +54,12 @@ namespace SchoolProject
         {
             lblDate.Text = DateTime.Now.ToShortDateString();
             lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            School_Project_Devendra.frmStudentRegistration sr = new School_Project_Devendra.frmStudentRegistration();
+            sr.Show();
         }       
     }
 }

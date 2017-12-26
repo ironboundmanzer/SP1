@@ -38,6 +38,7 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Monotype Corsiva", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.Color.White;
-            this.lbl1.Location = new System.Drawing.Point(727, 20);
+            this.lbl1.Location = new System.Drawing.Point(640, 14);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(122, 36);
             this.lbl1.TabIndex = 0;
@@ -66,7 +67,7 @@
             // 
             this.panel2.Controls.Add(this.lblTime);
             this.panel2.Controls.Add(this.lblDate);
-            this.panel2.Location = new System.Drawing.Point(1320, 76);
+            this.panel2.Location = new System.Drawing.Point(860, 76);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 85);
             this.panel2.TabIndex = 1;
@@ -141,11 +142,23 @@
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(646, 298);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Submit";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 655);
+            this.ClientSize = new System.Drawing.Size(1072, 655);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtLogin);
@@ -179,6 +192,7 @@
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button button1;
     }
 }
 
