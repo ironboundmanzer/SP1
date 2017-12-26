@@ -97,7 +97,6 @@
             this.dTPickerJoinSchoolDate.Name = "dTPickerJoinSchoolDate";
             this.dTPickerJoinSchoolDate.Size = new System.Drawing.Size(19, 20);
             this.dTPickerJoinSchoolDate.TabIndex = 12038;
-           // this.dTPickerJoinSchoolDate.ValueChanged += new System.EventHandler(this.dTPickerJoinSchoolDate_ValueChanged);
             // 
             // dTPickerDOB
             // 
@@ -105,7 +104,6 @@
             this.dTPickerDOB.Name = "dTPickerDOB";
             this.dTPickerDOB.Size = new System.Drawing.Size(19, 20);
             this.dTPickerDOB.TabIndex = 12027;
-          //  this.dTPickerDOB.ValueChanged += new System.EventHandler(this.dTPickerDOB_ValueChanged);
             // 
             // btnClear
             // 
@@ -224,7 +222,6 @@
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(188, 20);
             this.txtFatherName.TabIndex = 12024;
-           // this.txtFatherName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFatherName_KeyUp);
             // 
             // label22
             // 
@@ -646,6 +643,7 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmStudentRegistration";
             this.Text = "frmStudentRegistration";
             this.Load += new System.EventHandler(this.frmStudentRegistration_Load);
