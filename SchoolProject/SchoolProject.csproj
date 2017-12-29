@@ -49,18 +49,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Location.cs" />
     <Compile Include="Database\Student.cs" />
+    <Compile Include="Database\Users.cs" />
+    <Compile Include="frmLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocation.Designer.cs">
+      <DependentUpon>frmLocation.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMainForm.Designer.cs">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmpersonalization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmpersonalization.Designer.cs">
+      <DependentUpon>frmpersonalization.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStudentRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmStudentRegistration.Designer.cs">
       <DependentUpon>frmStudentRegistration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsers.Designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="RFIDMng.cs">
       <SubType>Form</SubType>
@@ -89,11 +109,20 @@
       <DependentUpon>StudentInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User32API.cs" />
+    <EmbeddedResource Include="frmLocation.resx">
+      <DependentUpon>frmLocation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmpersonalization.resx">
+      <DependentUpon>frmpersonalization.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStudentRegistration.resx">
       <DependentUpon>frmStudentRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RFIDMng.resx">
       <DependentUpon>RFIDMng.cs</DependentUpon>

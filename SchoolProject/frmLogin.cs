@@ -12,11 +12,13 @@ using System.Security.Cryptography;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using SchoolProject.Database;
 
 namespace SchoolProject
 {
     public partial class frmLogin : Form
     {
+        public static string UserId;
         public static string passingloginIdName;
         public frmLogin()
         {
@@ -26,90 +28,74 @@ namespace SchoolProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            txtName.Text = "Admin";
+            txtPassword.Text = "admin";
             lblDate.Text = DateTime.Now.ToShortDateString();
             lblTime.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (txtName.Text == "")
+            {
+                txtName.Focus();
+            }
+            else if (txtPassword.Text == "")
+            {
+                txtPassword.Focus();
+            }
+            else
+            {
+                txtName.Focus();
+            }
             Login(txtName.Text, txtPassword.Text);
-            txtName.Focus();
+            
         }
 
         private void Login(string name, string password)
         {
-            string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
-            string command = "Select * from tblUser where UserName=@name and Password=@password";
-
-            string encyptpassword = frmLogin.Encrypt(password);
-
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand(command, con);
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@password", encyptpassword);
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            if (sdr.HasRows)
+            Users usersobj = new Users();
+            frmLogin flogin = new frmLogin();
+            UserId = usersobj.LoginUser(name, password);
+            if (UserId != "")
             {
+                // this.Dispose();
+
                 frmMainForm mf = new frmMainForm();
+                //  mf.MdiChildren = this;
+                //mf.Show();
+                //this.Hide();
+                // this.Close();
                 this.Hide();
-                mf.Show();
+                mf.ShowDialog();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("User Name and Password must be match");
+                txtPassword.Text = "";
             }
-            txtPassword.Text = "";
+           
+            
         }
 
-        public static string Encrypt(string encryptString)
+        private void btnShowAndHide_Click(object sender, EventArgs e)
         {
-            string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement    
-            byte[] clearBytes = Encoding.Unicode.GetBytes(encryptString);
-            using (Aes encryptor = Aes.Create())
+            if (btnShowAndHide.Text == "Show")
             {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {      
-            0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76      
-        });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(clearBytes, 0, clearBytes.Length);
-                        cs.Close();
-                    }
-                    encryptString = Convert.ToBase64String(ms.ToArray());
-                }
+                txtPassword.PasswordChar = char.MinValue;
+                btnShowAndHide.Text = "Hide";
             }
-            return encryptString;
+            else
+            {
+                txtPassword.PasswordChar = '*';
+                btnShowAndHide.Text = "Show";
+            }
         }
 
-        public static string Decrypt(string cipherText)
+        private void frmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string EncryptionKey = "0ram@1234xxxxxxxxxxtttttuuuuuiiiiio";  //we can change the code converstion key as per our requirement, but the decryption key should be same as encryption key    
-            cipherText = cipherText.Replace(" ", "+");
-            byte[] cipherBytes = Convert.FromBase64String(cipherText);
-            using (Aes encryptor = Aes.Create())
-            {
-                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] {      
-            0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76      
-        });
-                encryptor.Key = pdb.GetBytes(32);
-                encryptor.IV = pdb.GetBytes(16);
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(cipherBytes, 0, cipherBytes.Length);
-                        cs.Close();
-                    }
-                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
-                }
-            }
-            return cipherText;
+
         }
        
     }

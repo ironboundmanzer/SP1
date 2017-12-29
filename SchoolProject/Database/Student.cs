@@ -35,6 +35,7 @@ namespace SchoolProject.Database
         public string Notes { get; set; }
         public string AadharNo { get; set; }
         public string StudentPhoto { get; set; }
+        public string TagId { get; set; }
     }
 
     //  this class Show Student Data on DataGridView
@@ -243,6 +244,28 @@ namespace SchoolProject.Database
                 cmd.Parameters.AddWithValue("@notes", std.Notes);
                 cmd.Parameters.AddWithValue("@aadharNo", std.AadharNo);
                 cmd.Parameters.AddWithValue("@studentPhoto", std.StudentPhoto);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        // Update Student Tag Id
+        public void StudentUpdateTagId(string studentId,string tagId)
+        {
+            try
+            {
+                con = new SqlConnection(cs);
+                cmd = new SqlCommand("usp_UpdateTagId", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@studentId", studentId);   
+                cmd.Parameters.AddWithValue("@tagId", tagId);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }

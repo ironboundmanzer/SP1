@@ -38,8 +38,12 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnShowAndHide = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblLoginPage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,26 +99,26 @@
             // 
             this.lblLogin.AutoSize = true;
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogin.Location = new System.Drawing.Point(261, 212);
+            this.lblLogin.Location = new System.Drawing.Point(28, 36);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(72, 24);
+            this.lblLogin.Size = new System.Drawing.Size(220, 24);
             this.lblLogin.TabIndex = 2;
-            this.lblLogin.Text = "LOGIN:";
+            this.lblLogin.Text = "User Name Or UserId   :  ";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(261, 298);
+            this.lblPassword.Location = new System.Drawing.Point(28, 93);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(123, 24);
+            this.lblPassword.Size = new System.Drawing.Size(207, 24);
             this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "PASSWORD:";
+            this.lblPassword.Text = "Password                      :";
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(264, 237);
+            this.txtName.Location = new System.Drawing.Point(262, 27);
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(259, 33);
@@ -123,7 +127,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(265, 325);
+            this.txtPassword.Location = new System.Drawing.Point(262, 90);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
@@ -133,35 +137,72 @@
             // btnSubmit
             // 
             this.btnSubmit.BackColor = System.Drawing.Color.DarkRed;
-            this.btnSubmit.Location = new System.Drawing.Point(334, 441);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(194, 160);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(104, 32);
+            this.btnSubmit.Size = new System.Drawing.Size(116, 41);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = false;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // btnShowAndHide
+            // 
+            this.btnShowAndHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAndHide.Location = new System.Drawing.Point(519, 90);
+            this.btnShowAndHide.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnShowAndHide.Name = "btnShowAndHide";
+            this.btnShowAndHide.Size = new System.Drawing.Size(56, 34);
+            this.btnShowAndHide.TabIndex = 92;
+            this.btnShowAndHide.Text = "Show";
+            this.btnShowAndHide.UseVisualStyleBackColor = true;
+            this.btnShowAndHide.Click += new System.EventHandler(this.btnShowAndHide_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lblLogin);
+            this.panel3.Controls.Add(this.btnSubmit);
+            this.panel3.Controls.Add(this.btnShowAndHide);
+            this.panel3.Controls.Add(this.lblPassword);
+            this.panel3.Controls.Add(this.txtName);
+            this.panel3.Controls.Add(this.txtPassword);
+            this.panel3.Location = new System.Drawing.Point(174, 257);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(601, 221);
+            this.panel3.TabIndex = 93;
+            // 
+            // lblLoginPage
+            // 
+            this.lblLoginPage.AutoSize = true;
+            this.lblLoginPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoginPage.Location = new System.Drawing.Point(376, 195);
+            this.lblLoginPage.Name = "lblLoginPage";
+            this.lblLoginPage.Size = new System.Drawing.Size(150, 31);
+            this.lblLoginPage.TabIndex = 94;
+            this.lblLoginPage.Text = "Login Page";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 655);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.lblLogin);
+            this.Controls.Add(this.lblLoginPage);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLogin_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +220,9 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnShowAndHide;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblLoginPage;
     }
 }
 

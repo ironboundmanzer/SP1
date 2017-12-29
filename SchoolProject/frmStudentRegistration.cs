@@ -15,6 +15,7 @@ namespace School_Project_Devendra
 {
     public partial class frmStudentRegistration : Form
     {
+        public static int RegistrationCount = 0;
         string DobDate;
         StudentDAL stddal = new StudentDAL();
         string img;
@@ -27,8 +28,25 @@ namespace School_Project_Devendra
 
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
-           // GetId();
-            ShowData();
+            if (frmStudentRegistration.RegistrationCount == 1)
+            {
+               
+            }
+            else if (SchoolProject.frmLocation.locationCount == 1)
+            {
+                MessageBox.Show("Please Close Location Page First");
+            }
+            else if (SchoolProject.frmUsers.userCount == 1)
+            {
+                MessageBox.Show("Please Close User Account Page First");
+            }
+            else
+            {
+                this.Top = 0;
+                this.Left = 0;
+                ShowData();
+                RegistrationCount = 1;
+            }
         }
 
         private void ShowData()
@@ -446,7 +464,6 @@ namespace School_Project_Devendra
 
         private void txtDOB_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             //DateTime dt = DateTime.Now;
             //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fr-FR");
             //if (DateTime.TryParse(txtDOB.Text, out dt))
@@ -536,76 +553,14 @@ namespace School_Project_Devendra
         }
 
         // Select Date of Birth 
-        private void dTPickerDOB_CloseUp(object sender, EventArgs e)
-        {
-            DateTime iDate;
-            dTPickerDOB.Format = DateTimePickerFormat.Short;
-            iDate = dTPickerDOB.Value;
-            DobDate = iDate.ToShortDateString();
-
-            txtDOB.Text = "";
-
-            string currentDate = DateTime.Now.ToShortDateString();
-            DateTime fromdate = Convert.ToDateTime(DobDate);
-            DateTime todate = Convert.ToDateTime(currentDate);
-
-            int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - fromdate.Date).TotalDays);
-            // int result = DateTime.Compare(todate, fromdate);
-            if (totalDays >= 1461)
-            {
-                txtDOB.Text = dTPickerDOB.Value.Date.ToString("dd/MM/yyyy");
-                txtAadharNo.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Please Select Your Age before 4 years");
-            }
-        }
 
         // Select Date of School Join
-        private void dTPickerJoinSchoolDate_CloseUp(object sender, EventArgs e)
-        {
-            if (txtDOB.Text == "")
-            {
-                MessageBox.Show("Please Select Before Date of Birth");
-                dTPickerDOB.Focus();
-            }
-            else
-            {
-                DateTime iDate;
-                dTPickerJoinSchoolDate.Format = DateTimePickerFormat.Short;
-                // dTPickerJoinSchoolDate.CustomFormat = "dd-MM-yyyy";
-                iDate = dTPickerJoinSchoolDate.Value;
-                DateTime iDateDOB = dTPickerDOB.Value;
-
-                string currentDate = DateTime.Now.ToShortDateString();
-                DateTime fromdate = Convert.ToDateTime(iDate);
-                DateTime fromdate1 = Convert.ToDateTime(iDateDOB);
-
-                int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - fromdate.Date).TotalDays);
-                int totalDays1 = Convert.ToInt32((DateTime.UtcNow.Date - fromdate1.Date).TotalDays);
-
-                if (totalDays <= 0)
-                {
-                    MessageBox.Show("Do not allow this date");
-                }
-                else if (totalDays + 1461 > totalDays1)
-                {
-                    MessageBox.Show("Please Select Date 4 years after of DOB");
-                }
-                else
-                {
-                    // txtJoinedSchoolDate.Text = iDate.ToShortDateString();
-                    txtJoinedSchoolDate.Text = dTPickerJoinSchoolDate.Value.Date.ToString("dd/MM/yyyy");
-                    txtSiblingInformation.Focus();
-                }
-            }
-        }
 
         // Exit Method
         private void btnExit_Click(object sender, EventArgs e)
         {
             // txtAadharNo.Text = "123456789012";
+            RegistrationCount = 0;
             this.Close();
         }
 
@@ -658,17 +613,79 @@ namespace School_Project_Devendra
             }
         }
 
-        private void cbGender_SelectedIndexChanged(object sender, EventArgs e)
+        private void dTPickerDOB_CloseUp(object sender, EventArgs e)
         {
-            if (cbGender.Text != "SELECT GENDER")
+            DateTime iDate;
+            dTPickerDOB.Format = DateTimePickerFormat.Short;
+            iDate = dTPickerDOB.Value;
+            DobDate = iDate.ToShortDateString();
+
+            txtDOB.Text = "";
+
+            string currentDate = DateTime.Now.ToShortDateString();
+            DateTime fromdate = Convert.ToDateTime(DobDate);
+            DateTime todate = Convert.ToDateTime(currentDate);
+
+            int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - fromdate.Date).TotalDays);
+            // int result = DateTime.Compare(todate, fromdate);
+            if (totalDays >= 1461)
             {
-                dTPickerDOB.Focus();
+                txtDOB.Text = dTPickerDOB.Value.Date.ToString("dd/MM/yyyy");
+                txtAadharNo.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Please Select Your Age before 4 years");
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void dTPickerJoinSchoolDate_CloseUp(object sender, EventArgs e)
+        {
+            if (txtDOB.Text == "")
+            {
+                MessageBox.Show("Please Select Before Date of Birth");
+                dTPickerDOB.Focus();
+            }
+            else
+            {
+                DateTime iDate;
+                dTPickerJoinSchoolDate.Format = DateTimePickerFormat.Short;
+                // dTPickerJoinSchoolDate.CustomFormat = "dd-MM-yyyy";
+                iDate = dTPickerJoinSchoolDate.Value;
+                DateTime iDateDOB = dTPickerDOB.Value;
+
+                string currentDate = DateTime.Now.ToShortDateString();
+                DateTime fromdate = Convert.ToDateTime(iDate);
+                DateTime fromdate1 = Convert.ToDateTime(iDateDOB);
+
+                int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - fromdate.Date).TotalDays);
+                int totalDays1 = Convert.ToInt32((DateTime.UtcNow.Date - fromdate1.Date).TotalDays);
+
+                if (totalDays <= 0)
+                {
+                    MessageBox.Show("Do not allow this date");
+                }
+                else if (totalDays + 1461 > totalDays1)
+                {
+                    MessageBox.Show("Please Select Date 4 years after of DOB");
+                }
+                else
+                {
+                    // txtJoinedSchoolDate.Text = iDate.ToShortDateString();
+                    txtJoinedSchoolDate.Text = dTPickerJoinSchoolDate.Value.Date.ToString("dd/MM/yyyy");
+                    txtSiblingInformation.Focus();
+                }
+            }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtName_KeyDown(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show(e.KeyValue.ToString());
         }
 
     }

@@ -107,7 +107,6 @@
                         antennaNum          = eAntennaNo._1;
 
                         int TID = 0;
-                        
                         TID = CLReader._Tag6C.GetEPC_TID(ConnIDs,antennaNum,eRType);
                         if (TID != 0)
                         {
