@@ -89,7 +89,7 @@
             this.btnpersonalization.Name = "btnpersonalization";
             this.btnpersonalization.Size = new System.Drawing.Size(156, 35);
             this.btnpersonalization.TabIndex = 12100;
-            this.btnpersonalization.Text = "personalization";
+            this.btnpersonalization.Text = "Personalization";
             this.btnpersonalization.UseVisualStyleBackColor = true;
             this.btnpersonalization.Click += new System.EventHandler(this.btnpersonalization_Click);
             // 
@@ -667,7 +667,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Name = "frmpersonalization";
-            this.Text = "frmpersonalization";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmpersonalization_Load);
             ((System.ComponentModel.ISupportInitialize)(this.datagridStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentPhoto)).EndInit();

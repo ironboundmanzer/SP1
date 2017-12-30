@@ -289,6 +289,15 @@ namespace SchoolProject
             btnRegistration.Enabled = false;
         }
 
+        private void studentInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSearchStudentByTagId fSearchStudent = new frmSearchStudentByTagId();
+            fSearchStudent.MdiParent = this;
+            this.Top = 50;
+            this.Left = 0;
+            fSearchStudent.Show();
+        }
+
 
     }
 }

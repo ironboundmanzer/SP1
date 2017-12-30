@@ -70,6 +70,18 @@
     <Compile Include="frmpersonalization.Designer.cs">
       <DependentUpon>frmpersonalization.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSearchStudentByTagId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchStudentByTagId.Designer.cs">
+      <DependentUpon>frmSearchStudentByTagId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentDetailsOrCardReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentDetailsOrCardReader.Designer.cs">
+      <DependentUpon>frmStudentDetailsOrCardReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStudentRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmpersonalization.resx">
       <DependentUpon>frmpersonalization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchStudentByTagId.resx">
+      <DependentUpon>frmSearchStudentByTagId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudentDetailsOrCardReader.resx">
+      <DependentUpon>frmStudentDetailsOrCardReader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentRegistration.resx">
       <DependentUpon>frmStudentRegistration.cs</DependentUpon>

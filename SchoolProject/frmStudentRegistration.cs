@@ -52,6 +52,7 @@ namespace School_Project_Devendra
         private void ShowData()
         {
             dataGridView1.DataSource = stddal.ShowStudent();
+           // int i= dataGridView1.RowCount;
         }
 
         // Open file for Image

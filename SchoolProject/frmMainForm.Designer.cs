@@ -58,6 +58,7 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.studentInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnLogin.SuspendLayout();
@@ -180,14 +181,15 @@
             this.personalizationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.personalizationToolStripMenuItem.Name = "personalizationToolStripMenuItem";
             this.personalizationToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.personalizationToolStripMenuItem.Text = "personalization";
+            this.personalizationToolStripMenuItem.Text = "Personalization";
             this.personalizationToolStripMenuItem.Click += new System.EventHandler(this.personalizationToolStripMenuItem_Click);
             // 
             // transactionToolStripMenuItem
             // 
             this.transactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dailyTransactionToolStripMenuItem,
-            this.monthlyToolStripMenuItem});
+            this.monthlyToolStripMenuItem,
+            this.studentInfoToolStripMenuItem});
             this.transactionToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
@@ -372,6 +374,15 @@
             this.lineShape1.Y1 = 167;
             this.lineShape1.Y2 = 167;
             // 
+            // studentInfoToolStripMenuItem
+            // 
+            this.studentInfoToolStripMenuItem.BackColor = System.Drawing.Color.DarkRed;
+            this.studentInfoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.studentInfoToolStripMenuItem.Name = "studentInfoToolStripMenuItem";
+            this.studentInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.studentInfoToolStripMenuItem.Text = "Student Info";
+            this.studentInfoToolStripMenuItem.Click += new System.EventHandler(this.studentInfoToolStripMenuItem_Click);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,5 +445,6 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.ToolStripMenuItem personalizationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem studentInfoToolStripMenuItem;
     }
 }

@@ -51,8 +51,23 @@ namespace SchoolProject.Database
         public string AadharNo { get; set; }
     }
 
+    class StudentforStudentInfo
+    {
+        public string StudentId { get; set; }
+        public string Name { get; set; }
+        public string RollNo { get; set; }
+        public string Gender { get; set; }
+        public string DOB { get; set; }
+        public string Class { get; set; }
+        public string Section { get; set; }
+        public string ClassTeacher { get; set; }
+        public string GuardianName { get; set; }
+        public string AadharNo { get; set; }
+    }
+
     class StudentDAL
     {
+        public static int studentCount=0;
         string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
         SqlConnection con = null;
         SqlCommand cmd = null;
@@ -215,6 +230,173 @@ namespace SchoolProject.Database
                 con.Close();
             }
             return std;
+        }
+
+        // Search Student By TagId
+        public Student SearchStudentByTagId(string tagId)
+        {
+            Student std = new Student();
+            con = new SqlConnection(cs);
+            cmd = new SqlCommand("usp_SearchStudentDataByTagIdOrStudentId", con);
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@tagId", tagId);
+                cmd.Parameters.AddWithValue("@studentId", tagId);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                if (sdr.HasRows)
+                {
+                    while (sdr.Read())
+                    {
+                        std.StudentId = sdr["StudentId"].ToString();
+                        std.Name = sdr["Name"].ToString();
+                        std.RollNo = sdr["RollNo"].ToString();
+                        std.Gender = sdr["Gender"].ToString();
+                        std.DOB = sdr["DOB"].ToString();
+                        std.Class = sdr["Class"].ToString();
+                        std.Section = sdr["Section"].ToString();
+                        std.ClassTeacher = sdr["ClassTeacher"].ToString();
+                        std.ClassTeacherContactNo = sdr["ClassTeacherContactNo"].ToString();
+                        std.GuardianName = sdr["GuardianName"].ToString();
+                        std.GuardianContactNo = sdr["GuardianContactNo"].ToString();     
+                        std.HomeAddress = sdr["HomeAddress"].ToString();
+                        std.SiblingInformation = sdr["SiblingInformation"].ToString();
+                        std.JoinedSchoolDate = sdr["JoinedSchoolDate"].ToString();
+                        std.BloodGroup = sdr["BloodGroup"].ToString();
+                        std.Notes = sdr["Notes"].ToString();
+                        std.Warnings = sdr["Warnings"].ToString();
+                        std.StudentPhoto = sdr["StudentPhoto"].ToString();
+                        studentCount++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return std;
+        }
+
+        // Show Student data by StudentId,Name,Roll No, Class ,ClassTeacher
+        public Student ShowStudentByStudentId_Name_RollNo_Class_ClassTeacher(string studentId,string name,string rollNo,string Class,string classteacher)
+        {
+            Student std = new Student();
+            con = new SqlConnection(cs);
+            cmd = new SqlCommand("usp_SearchStudentDataByTagIdOrStudentId", con);
+            try
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@studentId", studentId);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@rollNo", rollNo);
+                cmd.Parameters.AddWithValue("@class", Class);
+                cmd.Parameters.AddWithValue("@classTeacher", classteacher);
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                if (sdr.HasRows)
+                {
+                    while (sdr.Read())
+                    {
+                        std.StudentId = sdr["StudentId"].ToString();
+                        std.Name = sdr["Name"].ToString();
+                        std.RollNo = sdr["RollNo"].ToString();
+                        std.Gender = sdr["Gender"].ToString();
+                        std.DOB = sdr["DOB"].ToString();
+                        std.Class = sdr["Class"].ToString();
+                        std.Section = sdr["Section"].ToString();
+                        std.ClassTeacher = sdr["ClassTeacher"].ToString();
+                        std.ClassTeacherContactNo = sdr["ClassTeacherContactNo"].ToString();
+                        std.GuardianName = sdr["GuardianName"].ToString();
+                        std.GuardianContactNo = sdr["GuardianContactNo"].ToString();
+                        std.HomeAddress = sdr["HomeAddress"].ToString();
+                        std.SiblingInformation = sdr["SiblingInformation"].ToString();
+                        std.JoinedSchoolDate = sdr["JoinedSchoolDate"].ToString();
+                        std.BloodGroup = sdr["BloodGroup"].ToString();
+                        std.Notes = sdr["Notes"].ToString();
+                        std.Warnings = sdr["Warnings"].ToString();
+                        std.StudentPhoto = sdr["StudentPhoto"].ToString();
+                        studentCount++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return std;
+        }
+
+
+        // Search Student Count by student details
+        public int SearchStudentCount(Student std)
+        {
+            con = new SqlConnection(cs);
+            cmd = new SqlCommand("usp_CountSearchByStudentInfo", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@studentId", std.StudentId);
+            cmd.Parameters.AddWithValue("@name", std.Name);
+            cmd.Parameters.AddWithValue("@rollNo", std.RollNo);
+            cmd.Parameters.AddWithValue("@class", std.Class);
+            cmd.Parameters.AddWithValue("@classTeacher", std.ClassTeacher);
+            con.Open();
+            int count = (int)cmd.ExecuteScalar();
+            return count;
+        }
+
+        // Search Student data by student details
+        public List<StudentforStudentInfo> SearchStudentByStudentDetails(string studentId, string name, string rollNo, string Class, string classteacher)
+        {
+            List<StudentforStudentInfo> lststudent = new List<StudentforStudentInfo>();
+            con = new SqlConnection(cs);
+            cmd = new SqlCommand("usp_SearchStudentByStudentInfo", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@studentId", studentId);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@rollNo", rollNo);
+            cmd.Parameters.AddWithValue("@class", Class);
+            cmd.Parameters.AddWithValue("@classTeacher", classteacher);
+            try
+            {
+                con.Open();
+                SqlDataReader sdr = cmd.ExecuteReader();
+                if (sdr.HasRows)
+                {
+                    StudentforStudentInfo stdInfo = new StudentforStudentInfo();
+                    while (sdr.Read())
+                    {
+
+                        stdInfo.StudentId = sdr["StudentId"].ToString();
+                        stdInfo.Name = sdr["Name"].ToString();
+                        stdInfo.RollNo = sdr["RollNo"].ToString();
+                        stdInfo.Gender = sdr["Gender"].ToString();
+                        stdInfo.DOB = sdr["DOB"].ToString();
+                        stdInfo.Class = sdr["Class"].ToString();
+                        stdInfo.Section = sdr["Section"].ToString();
+                        stdInfo.ClassTeacher = sdr["ClassTeacher"].ToString();
+                        stdInfo.GuardianName = sdr["GuardianName"].ToString();
+                        stdInfo.AadharNo = sdr["AadharNo"].ToString();
+                        lststudent.Add(stdInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return lststudent;
         }
 
         //  Student Data Update and Save
