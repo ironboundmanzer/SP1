@@ -778,7 +778,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1573, 865);
+            this.ClientSize = new System.Drawing.Size(1354, 619);
             this.Controls.Add(this.txtAadharNos);
             this.Controls.Add(this.lblAadhar);
             this.Controls.Add(this.pbStudentPhoto);

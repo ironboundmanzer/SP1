@@ -25,6 +25,8 @@ namespace SchoolProject
         public static string TagId = "";
         string studentId = "";
 
+        public static string studentID;
+
         Student std = new Student();
         public frmSearchStudentByTagId()
         {
@@ -73,7 +75,7 @@ namespace SchoolProject
                 if (CLReader.CreateUsbConn(ConnIDs, Handle, RFIDPrg))
                 {
                     // MessageBox.Show("Connected");
-                    btnGetTagId .Text = "Ok";
+                   // btnGetTagId .Text = "Ok";
                     eReadType eRType = new eReadType();
                     eRType = eReadType.Single;
                     antennaNum = eAntennaNo._1;
@@ -101,6 +103,8 @@ namespace SchoolProject
 
         private void frmSearchStudentByTagId_Load(object sender, EventArgs e)
         {
+            this.Top = 15;
+            this.Left = 0;
             panelSearchTagId.Visible = false;
             panel1.Visible = false;
             panelAttendance.Visible = false;
@@ -205,12 +209,13 @@ namespace SchoolProject
                 btnCardReader.Visible = false;
                 btnStudentDetails.Visible = false;
                 btnstdExit.Visible = false;
+
+                string CardId = frmSearchStudentByTagId.TagId;
+                fEnteryTime(CardId);
+                lEnteryTime(CardId);
+                LocationName(CardId);
+                TotalDayByMonth(CardId);
             }
-        }
-
-        private void btnDetailsEntries_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSearchStudentData_Click(object sender, EventArgs e)
@@ -239,6 +244,7 @@ namespace SchoolProject
         {
             panel1.Visible = false;
             panelSearchTagId.Visible = false;
+            frmSearchStudentByTagId.TagId = "";
         }
 
         private void btnPSearch_Click(object sender, EventArgs e)
@@ -259,6 +265,7 @@ namespace SchoolProject
             panelSearchTagId.Left = 330;
             panelStudentDetails.Visible = false;
 
+            btnGetTagId.Focus();
         }
 
         private void btnStudentDetails_Click(object sender, EventArgs e)
@@ -271,6 +278,8 @@ namespace SchoolProject
             panelStudentDetails.Width = 615;
             panelStudentDetails.Top = 200;
             panelStudentDetails.Left = 260;
+
+            txtPStudentId.Focus();
         }
 
         private void btnstdExit_Click(object sender, EventArgs e)
@@ -311,13 +320,16 @@ namespace SchoolProject
 
             if (countstudent <=0)
             {
-
+                MessageBox.Show("Sorry Student is not found");
             }
             else if (countstudent == 1)
             {
-                ShowStudentDataOne();
+                string studentId = stddal.GetStudentIdSearchStudentCount(txtPStudentId.Text,
+                txtPName.Text, txtPRollNo.Text, txtPClass.Text, txtPClassTeacher.Text);
+                ShowStudentDataOne(studentId);
                 panelAttendance.Visible = true;
                 panelSearchTagId.Visible = false;
+                paneldatagrid.Visible = false;
                 panel1.Visible = false;
                 panelstudentinfo.Visible = true;
                 panelstudentinfo.Height = 615;
@@ -336,46 +348,137 @@ namespace SchoolProject
             }
         }
 
-        private void ShowStudentDataOne()
+        private void ShowStudentDataOne(string studentid)
         {
             Student stdd = new Student();
-            stdd = stddal.ShowStudentByStudentId_Name_RollNo_Class_ClassTeacher(txtPStudentId.Text, 
-                txtPName.Text, txtPRollNo.Text, txtPClass.Text, txtPClassTeacher.Text);
+            stdd = stddal.ShowStudentByStudentId_Name_RollNo_Class_ClassTeacher(studentid);
 
-            studentId = stdd.StudentId;
-            lblStudentId.Text = "Student Id  : " + studentId;
-            lblName1.Text = stdd.Name;
-            lblRollNo1.Text = stdd.RollNo;
-            lblGender1.Text = stdd.Gender;
-            lblDOB1.Text = stdd.DOB;
-            lblClass1.Text = stdd.Class;
-            lblSection1.Text = stdd.Section;
-            lblClassTeacher1.Text = stdd.ClassTeacher;
-            lblClassTeacherContactNo1.Text = stdd.ClassTeacherContactNo;
-            lblGuardianName1.Text = stdd.GuardianName;
-            lblGuardianContactNo1.Text = stdd.GuardianContactNo;
-            lblHomeAddress1.Text = stdd.HomeAddress;
-            lblSiblingInfo1.Text = stdd.SiblingInformation;
-            lblJoinSchoolDate1.Text = stdd.JoinedSchoolDate;
-            lblBloodGroup1.Text = stdd.BloodGroup;
-            lblNotes1.Text = stdd.Notes;
-            lblWarning1.Text = stdd.Notes;
-
-            string img = stdd.StudentPhoto;
-            if (img != null)
+            if (stdd == null)
             {
-                pbStudentPhoto.Image = Base64ToImage(img);
+                MessageBox.Show("");
+            }
+            else
+            {
+               // studentId = stdd.StudentId;
+                lblStudentId.Text = "Student Id  : " + studentid;
+                lblName1.Text = stdd.Name;
+                lblRollNo1.Text = stdd.RollNo;
+                lblGender1.Text = stdd.Gender;
+                lblDOB1.Text = stdd.DOB;
+                lblClass1.Text = stdd.Class;
+                lblSection1.Text = stdd.Section;
+                lblClassTeacher1.Text = stdd.ClassTeacher;
+                lblClassTeacherContactNo1.Text = stdd.ClassTeacherContactNo;
+                lblGuardianName1.Text = stdd.GuardianName;
+                lblGuardianContactNo1.Text = stdd.GuardianContactNo;
+                lblHomeAddress1.Text = stdd.HomeAddress;
+                lblSiblingInfo1.Text = stdd.SiblingInformation;
+                lblJoinSchoolDate1.Text = stdd.JoinedSchoolDate;
+                lblBloodGroup1.Text = stdd.BloodGroup;
+                lblNotes1.Text = stdd.Notes;
+                lblWarning1.Text = stdd.Notes;
+
+                string img = stdd.StudentPhoto;
+                if (img != null)
+                {
+                    pbStudentPhoto.Image = Base64ToImage(img);
+                }
             }
         }
 
         private void btnPSDClear_Click(object sender, EventArgs e)
         {
-
+            txtPStudentId.Text = "";
+            txtPName.Text = "";
+            txtPRollNo.Text = "";
+            txtPClass.Text = "";
+            txtPClassTeacher.Text = "";
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void datagridStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            studentId = datagridStudentInfo.CurrentRow.Cells[0].Value.ToString();
+            // Student std = new Student();
+            SearchStudentByTagId(studentId);
+            panelAttendance.Visible = true;
+            panelSearchTagId.Visible = false;
+            panel1.Visible = false;
+            panelstudentinfo.Visible = true;
+            panelstudentinfo.Height = 615;
+            panelstudentinfo.Width = 1100;
+            panelstudentinfo.Top = 0;
+            panelstudentinfo.Left = 0;
+
+            btnCardReader.Visible = false;
+            btnStudentDetails.Visible = false;
+            btnstdExit.Visible = false;
+            paneldatagrid.Visible = false;
+
+            string CardId = stddal.ReturnCardId(studentId);
+            fEnteryTime(CardId);
+            lEnteryTime(CardId);
+            LocationName(CardId);
+            TotalDayByMonth(CardId);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            paneldatagrid.Visible = false;
+
+            panelstudentinfo.Visible = false;
+            panelSearchTagId.Visible = false;
+            paneldatagrid.Visible = false;
+            panelStudentDetails.Visible = true;
+            panelStudentDetails.Height = 335;
+            panelStudentDetails.Width = 615;
+            panelStudentDetails.Top = 200;
+            panelStudentDetails.Left = 260;
+        }
+
+        private void panelstudentinfo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void fEnteryTime(string cardId)
+        {
+            string query = "Select top 1 AttendenceTime from tblAttendenceDetail where AttendenceDate=(Select Top 1 AttendenceDate from tblAttendenceDetail where CardId=@cardid order by AttendenceDate desc)";
+            lblEntryTime1.Text = stddal.ReturnEntryTime(cardId, query);
+        }
+
+        private void lEnteryTime(string cardId)
+        {
+            string query = "Select top 1 AttendenceTime from tblAttendenceDetail where AttendenceDate=(Select Top 1 AttendenceDate from tblAttendenceDetail where CardId=@cardid order by AttendenceDate desc) order by AttendenceTime desc";
+            lblLastNotedTime1.Text = stddal.ReturnEntryTime(cardId, query);
+        }
+
+        private void LocationName(string cardId)
+        {
+            lblLastKnowLocation1.Text = stddal.ReturnLocationName(cardId);
+        }
+
+        private void TotalDayByMonth(string cardId)
+        {
+            int month = System.DateTime.Now.Month;
+            int totalDay= stddal.ReturnTotalDay(month,cardId);
+            lblAttendanceInDay1.Text = totalDay.ToString();
+        }
+
+        private void btnDetailsEntries_Click(object sender, EventArgs e)
+        {
+            frmSearchStudentByTagId.studentID = studentId;
+            frmMainForm fmain = new frmMainForm();
+
+            frmAttendanceDetails fattDeatails = new frmAttendanceDetails();
+          //  this.Hide();
+
+            fattDeatails.MdiParent = this.MdiParent ;
+            fattDeatails.Show();
         }
     }
 }

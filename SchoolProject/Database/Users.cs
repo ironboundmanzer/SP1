@@ -24,7 +24,11 @@ namespace SchoolProject.Database
 
     class Users
     {
-        string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
+       //string cs1 = " ";
+        
+        //string cs = @"Data Source=DESKTOP-Q3V3MJF;Initial Catalog=SchoolATT;Integrated Security=True";
+        string cs = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
+        //string cs1 =ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
         SqlConnection con = null;
         SqlCommand cmd = null;
 
@@ -132,6 +136,44 @@ namespace SchoolProject.Database
             return id;
         }
 
+        public string ReturnName(string id, string password)
+        {
+            string name = "";
+            string encpass = Encrypt(password);
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select UserName from tblUsers where UserId=@id or UserName=@name and Password=@password", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", id);
+            cmd.Parameters.AddWithValue("@password", encpass);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                name = sdr["UserName"].ToString();
+            }
+            return name;
+        }
+
+        public string ReturnId(string name, string password)
+        {
+            string UserId = "";
+            string encpass = Encrypt(password);
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand("Select UserId from tblUsers where UserName=@name or UserId=@id and Password=@password", con);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@id", name);
+            cmd.Parameters.AddWithValue("@password", encpass);
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            if (sdr.Read())
+            {
+                UserId = sdr["UserId"].ToString();
+            }
+            return UserId;
+        }
+
         public void InsertUserData(User userobj)
         {
             string encryptPassword = Encrypt(userobj.Password);
@@ -144,7 +186,7 @@ namespace SchoolProject.Database
             cmd.Parameters.AddWithValue("@password", encryptPassword);
             cmd.Parameters.AddWithValue("@usertype", userobj.UserType);
             cmd.Parameters.AddWithValue("@updatedby",userobj.UpdatedBy );
-            cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString());
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.ToShortDateString().ToString());
             con.Open();
             cmd.ExecuteNonQuery();
         }

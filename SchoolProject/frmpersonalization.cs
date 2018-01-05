@@ -164,8 +164,11 @@ namespace SchoolProject
         {
             Student std = new Student();
             std.StudentId = datagridStudent.CurrentRow.Cells[0].Value.ToString();
+            std.RegistrationType = datagridStudent.CurrentRow.Cells[7].Value.ToString();
 
             lblRegistrationNo.Text = std.StudentId;
+            cbRegistrationType.Text = std.RegistrationType;
+            ShowAndHideColumn();
 
             std = stddal.ShowDataOnTextBox(std.StudentId);
             txtName.Text = std.Name;
@@ -221,12 +224,17 @@ namespace SchoolProject
                 panelTagId.Width = 600;
                 panelTagId.Top = 200;
                 panelTagId.Left=260;
+
+                lblRegistrationType.Visible = false;
+                cbRegistrationType.Visible = false;
             }
             else
             {
                 panelTagId.Visible = false;
                 panelReg.Visible = false;
                 btnpersonalization.Enabled = false;
+                //lblRegistrationType.Visible = false;
+                //cbRegistrationType.Visible = false;
             }
             txtTagId.Text = "";
         }
@@ -298,7 +306,230 @@ namespace SchoolProject
             panelReg.Visible = false;
             btnGetId.Text = "Get Id";
             txtTagId.Text = "";
+            lblRegistrationType.Visible = true;
+            cbRegistrationType.Visible = true;
         }
 
+        private void datagridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ShowAndHideColumn()
+        {
+            if (cbRegistrationType.Text == "STUDENT")
+            {
+                lblRollNo.Text = "Roll No                       :";
+                lblGuardianContactNo.Text = "Guardian Contact No   :";
+                lblClass.Visible = true;
+                txtClass.Visible = true;
+                lblSection.Visible = true;
+                txtSection.Visible = true;
+                lblClassTeacher.Visible = true;
+                txtClassTeacher.Visible = true;
+                lblClassTeacherContactNo.Visible = true;
+                txtClassTeacherContactNo.Visible = true;
+
+                lblSiblingInfo.Visible = true;
+                txtSiblingInformation.Visible = true;
+                lblGuardianName.Visible = true;
+                txtGuardianName.Visible = true;
+                //  lblGuardianContactNo.Visible = true;
+                //  txtGuardianContactNo.Visible = true;
+
+                lblBloodGroup.Location = new Point(31, 225);
+                txtBloodGroup.Location = new Point(211, 227);
+                lblHomeAddress.Location = new Point(31, 252);
+                txtHomeAddress.Location = new Point(211, 252);
+                lblNotes.Location = new Point(31, 332);
+                txtNotes.Location = new Point(211, 332);
+                lblJoinSchoolDate.Location = new Point(478, 274);
+                txtJoinedSchoolDate.Location = new Point(680, 274);
+                // dTPickerJoinSchoolDate.Location = new Point(884, 272);
+                lblGuardianContactNo.Location = new Point(478, 244);
+                txtGuardianContactNo.Location = new Point(680, 246);
+            }
+            else if (cbRegistrationType.Text == "FACULTY")
+            {
+                lblRollNo.Text = "Faculty No                 :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+                //  lblGuardianContactNo.Visible = false;
+                //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(31, 192);
+                txtBloodGroup.Location = new Point(211, 194);
+                lblHomeAddress.Location = new Point(31, 221);
+                txtHomeAddress.Location = new Point(211, 224);
+                lblNotes.Location = new Point(31, 274);
+                txtNotes.Location = new Point(211, 276);
+                lblJoinSchoolDate.Location = new Point(477, 224);
+                txtJoinedSchoolDate.Location = new Point(680, 224);
+                //  dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(479, 194);
+                txtGuardianContactNo.Location = new Point(680, 196);
+            }
+            else if (cbRegistrationType.Text == "HOUSE KEEPING")
+            {
+                lblRollNo.Text = "House keeping No   :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+                //  lblGuardianContactNo.Visible = false;
+                //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(31, 192);
+                txtBloodGroup.Location = new Point(211, 194);
+                lblHomeAddress.Location = new Point(31, 221);
+                txtHomeAddress.Location = new Point(211, 224);
+                lblNotes.Location = new Point(31, 274);
+                txtNotes.Location = new Point(211, 276);
+                lblJoinSchoolDate.Location = new Point(477, 224);
+                txtJoinedSchoolDate.Location = new Point(680, 224);
+                //  dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(479, 194);
+                txtGuardianContactNo.Location = new Point(680, 196);
+            }
+            else if (cbRegistrationType.Text == "GUEST")
+            {
+                lblRollNo.Text = "Guest No                   :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+                //  lblGuardianContactNo.Visible = false;
+                //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(31, 192);
+                txtBloodGroup.Location = new Point(211, 194);
+                lblHomeAddress.Location = new Point(31, 221);
+                txtHomeAddress.Location = new Point(211, 224);
+                lblNotes.Location = new Point(31, 274);
+                txtNotes.Location = new Point(211, 276);
+                lblJoinSchoolDate.Location = new Point(477, 224);
+                txtJoinedSchoolDate.Location = new Point(680, 224);
+                //  dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(479, 194);
+                txtGuardianContactNo.Location = new Point(680, 196);
+            }
+            //if (cbRegistrationType.Text != "SELECT REGISTRATION TYPE")
+            //{
+            //    lblName.Enabled = true;
+            //    txtName.Enabled = true;
+            //    lblRollNo.Enabled = true;
+            //    txtRollNo.Enabled = true;
+            //    lblDOB.Enabled = true;
+            //    txtDOB.Enabled = true;
+            //  //  dTPickerDOB.Enabled = true;
+            //    lblBloodGroup.Enabled = true;
+            //    txtBloodGroup.Enabled = true;
+            //    lblHomeAddress.Enabled = true;
+            //    txtHomeAddress.Enabled = true;
+            //    lblNotes.Enabled = true;
+            //    txtNotes.Enabled = true;
+            //    lblClass.Enabled = true;
+            //    txtClass.Enabled = true;
+            //    lblSection.Enabled = true;
+            //    txtSection.Enabled = true;
+            //    lblClassTeacher.Enabled = true;
+            //    txtClassTeacher.Enabled = true;
+            //    lblClassTeacherContactNo.Enabled = true;
+            //    txtClassTeacherContactNo.Enabled = true;
+            //    lblFatherName.Enabled = true;
+            //    txtFatherName.Enabled = true;
+            //    lblGender.Enabled = true;
+            //    txtGender.Enabled = true;
+            //    lblAadhar.Enabled = true;
+            //    txtAadharNo.Enabled = true;
+            //    lblSiblingInfo.Enabled = true;
+            //    txtSiblingInformation.Enabled = true;
+            //    lblGuardianName.Enabled = true;
+            //    txtGuardianName.Enabled = true;
+            //    lblGuardianContactNo.Enabled = true;
+            //    txtGuardianContactNo.Enabled = true;
+            //    lblJoinSchoolDate.Enabled = true;
+            //    txtJoinedSchoolDate.Enabled = true;
+            //  //  dTPickerJoinSchoolDate.Enabled = true;
+            //  //  btnBrowsePhoto.Enabled = true;
+            //}
+            //else
+            //{
+            //    lblName.Enabled = false;
+            //    txtName.Enabled = false;
+            //    lblRollNo.Enabled = false;
+            //    txtRollNo.Enabled = false;
+            //    lblDOB.Enabled = false;
+            //    txtDOB.Enabled = false;
+            // //   dTPickerDOB.Enabled = false;
+            //    lblBloodGroup.Enabled = false;
+            //    txtBloodGroup.Enabled = false;
+            //    lblHomeAddress.Enabled = false;
+            //    txtHomeAddress.Enabled = false;
+            //    lblNotes.Enabled = false;
+            //    txtNotes.Enabled = false;
+            //    lblClass.Enabled = false;
+            //    txtClass.Enabled = false;
+            //    lblSection.Enabled = false;
+            //    txtSection.Enabled = false;
+            //    lblClassTeacher.Enabled = false;
+            //    txtClassTeacher.Enabled = false;
+            //    lblClassTeacherContactNo.Enabled = false;
+            //    txtClassTeacherContactNo.Enabled = false;
+            //    lblFatherName.Enabled = false;
+            //    txtFatherName.Enabled = false;
+            //    lblGender.Enabled = false;
+            //    txtGender.Enabled = false;
+            //    lblAadhar.Enabled = false;
+            //    txtAadharNo.Enabled = false;
+            //    lblSiblingInfo.Enabled = false;
+            //    txtSiblingInformation.Enabled = false;
+            //    lblGuardianName.Enabled = false;
+            //    txtGuardianName.Enabled = false;
+            //    lblGuardianContactNo.Enabled = false;
+            //    txtGuardianContactNo.Enabled = false;
+            //    lblJoinSchoolDate.Enabled = false;
+            //    txtJoinedSchoolDate.Enabled = false;
+            //  //  dTPickerJoinSchoolDate.Enabled = false;
+            //  //  btnBrowsePhoto.Enabled = false;
+            //}
+        }
+
+       
     }
 }

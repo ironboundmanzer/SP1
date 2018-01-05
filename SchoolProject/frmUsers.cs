@@ -19,6 +19,8 @@ namespace SchoolProject
         string nextuserId = "";
         string userId;
         Users userobjdal = new Users();
+
+       // fmainform userId 
         public frmUsers()
         {
             InitializeComponent();
@@ -77,12 +79,12 @@ namespace SchoolProject
             {
                 GetUserId();
                 User userobj = new User();
-                // userobj.UserId = "U000001";
+               // userobj.UserId = "U000001";U201
                 userobj.UserId = nextuserId;
                 userobj.UserName = txtUserName.Text;
                 userobj.Password = txtPassword.Text;
                 userobj.UserType = cbAdminType.Text;
-                userobj.UpdatedBy = frmLogin.UserId;
+                userobj.UpdatedBy = frmMainForm.UserId;
                 userobjdal.InsertUserData(userobj);
                 lblUserId.Text = "User Registration No   :   " + nextuserId;
                 Clear();

@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(1099, 611);
             this.Name = "frmStudentDetailsOrCardReader";
             this.Text = "frmStudentDetailsOrCardReader";
+            this.Load += new System.EventHandler(this.frmStudentDetailsOrCardReader_Load);
             this.ResumeLayout(false);
 
         }

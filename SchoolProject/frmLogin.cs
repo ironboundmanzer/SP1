@@ -54,29 +54,31 @@ namespace SchoolProject
 
         private void Login(string name, string password)
         {
-            Users usersobj = new Users();
-            frmLogin flogin = new frmLogin();
-            UserId = usersobj.LoginUser(name, password);
-            if (UserId != "")
-            {
-                // this.Dispose();
+            //Users usersobj = new Users();
+            //frmLogin flogin = new frmLogin();
+            //UserId = usersobj.LoginUser(name, password);
+            //if (UserId != "")
+            //{
+            //    // this.Dispose();
 
-                frmMainForm mf = new frmMainForm();
-                //  mf.MdiChildren = this;
-                //mf.Show();
-                //this.Hide();
-                // this.Close();
-                this.Hide();
-                mf.ShowDialog();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("User Name and Password must be match");
-                txtPassword.Text = "";
-            }
-           
-            
+            //    frmMainForm mf = new frmMainForm();
+            //    //  mf.MdiChildren = this;
+            //    //mf.Show();
+            //    //this.Hide();
+            //    // this.Close();
+            //    this.Hide();
+            //    mf.ShowDialog();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("User Name and Password must be match");
+            //    txtPassword.Text = "";
+            //}
+            frmMainForm mf = new frmMainForm();
+            this.Hide();
+            mf.ShowDialog();
+            this.Close();
         }
 
         private void btnShowAndHide_Click(object sender, EventArgs e)

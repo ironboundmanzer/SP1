@@ -45,11 +45,14 @@
             this.lblWarning = new System.Windows.Forms.Label();
             this.lblSection = new System.Windows.Forms.Label();
             this.lblEntryTime = new System.Windows.Forms.Label();
-            this.lblExitTime = new System.Windows.Forms.Label();
             this.lblLastKnowLocation = new System.Windows.Forms.Label();
             this.lblLastNotedTime = new System.Windows.Forms.Label();
             this.lblAttendanceInDay = new System.Windows.Forms.Label();
             this.panelAttendance = new System.Windows.Forms.Panel();
+            this.lblEntryTime1 = new System.Windows.Forms.Label();
+            this.lblAttendanceInDay1 = new System.Windows.Forms.Label();
+            this.lblLastNotedTime1 = new System.Windows.Forms.Label();
+            this.lblLastKnowLocation1 = new System.Windows.Forms.Label();
             this.btnDetailsEntries = new System.Windows.Forms.Button();
             this.lblWarning1 = new System.Windows.Forms.Label();
             this.lblName1 = new System.Windows.Forms.Label();
@@ -67,45 +70,40 @@
             this.lblRollNo1 = new System.Windows.Forms.Label();
             this.lblGuardianContactNo1 = new System.Windows.Forms.Label();
             this.lblClassTeacherContactNo1 = new System.Windows.Forms.Label();
-            this.lblEntryTime1 = new System.Windows.Forms.Label();
-            this.lblAttendanceInDay1 = new System.Windows.Forms.Label();
-            this.lblExitTime1 = new System.Windows.Forms.Label();
-            this.lblLastNotedTime1 = new System.Windows.Forms.Label();
-            this.lblLastKnowLocation1 = new System.Windows.Forms.Label();
             this.panelSearchTagId = new System.Windows.Forms.Panel();
+            this.lblputoncardreader = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnPExit = new System.Windows.Forms.Button();
             this.btnGetTagId = new System.Windows.Forms.Button();
             this.lblStudentId = new System.Windows.Forms.Label();
-            this.btnPExit = new System.Windows.Forms.Button();
-            this.btnPClear = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelstudentinfo = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnStudentInfoExit = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCardReader = new System.Windows.Forms.Button();
-            this.btnStudentDetails = new System.Windows.Forms.Button();
-            this.lblputoncardreader = new System.Windows.Forms.Label();
-            this.panelStudentDetails = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPStudentId = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtPName = new System.Windows.Forms.TextBox();
-            this.txtPRollNo = new System.Windows.Forms.TextBox();
-            this.txtPClass = new System.Windows.Forms.TextBox();
-            this.lblPStudentId = new System.Windows.Forms.Label();
-            this.lblPClass = new System.Windows.Forms.Label();
-            this.lblPRollNo = new System.Windows.Forms.Label();
-            this.lblPName = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnPSDClear = new System.Windows.Forms.Button();
-            this.btnstdExit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.btnStudentInfoExit = new System.Windows.Forms.Button();
-            this.paneldatagrid = new System.Windows.Forms.Panel();
-            this.datagridStudentInfo = new System.Windows.Forms.DataGridView();
-            this.lblPClassTeacher = new System.Windows.Forms.Label();
+            this.btnCardReader = new System.Windows.Forms.Button();
+            this.btnStudentDetails = new System.Windows.Forms.Button();
+            this.panelStudentDetails = new System.Windows.Forms.Panel();
             this.txtPClassTeacher = new System.Windows.Forms.TextBox();
+            this.lblPClassTeacher = new System.Windows.Forms.Label();
+            this.btnPSDClear = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.lblPName = new System.Windows.Forms.Label();
+            this.lblPRollNo = new System.Windows.Forms.Label();
+            this.lblPClass = new System.Windows.Forms.Label();
+            this.lblPStudentId = new System.Windows.Forms.Label();
+            this.txtPClass = new System.Windows.Forms.TextBox();
+            this.txtPRollNo = new System.Windows.Forms.TextBox();
+            this.txtPName = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtPStudentId = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnstdExit = new System.Windows.Forms.Button();
+            this.paneldatagrid = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.datagridStudentInfo = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentPhoto)).BeginInit();
             this.panelAttendance.SuspendLayout();
             this.panelSearchTagId.SuspendLayout();
@@ -292,29 +290,18 @@
             // 
             this.lblEntryTime.AutoSize = true;
             this.lblEntryTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntryTime.Location = new System.Drawing.Point(20, 9);
+            this.lblEntryTime.Location = new System.Drawing.Point(29, 9);
             this.lblEntryTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEntryTime.Name = "lblEntryTime";
             this.lblEntryTime.Size = new System.Drawing.Size(152, 20);
             this.lblEntryTime.TabIndex = 12095;
             this.lblEntryTime.Text = "Entry Time                :";
             // 
-            // lblExitTime
-            // 
-            this.lblExitTime.AutoSize = true;
-            this.lblExitTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExitTime.Location = new System.Drawing.Point(19, 43);
-            this.lblExitTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblExitTime.Name = "lblExitTime";
-            this.lblExitTime.Size = new System.Drawing.Size(153, 20);
-            this.lblExitTime.TabIndex = 12096;
-            this.lblExitTime.Text = "Exit Time                   :";
-            // 
             // lblLastKnowLocation
             // 
             this.lblLastKnowLocation.AutoSize = true;
             this.lblLastKnowLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastKnowLocation.Location = new System.Drawing.Point(20, 77);
+            this.lblLastKnowLocation.Location = new System.Drawing.Point(26, 43);
             this.lblLastKnowLocation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastKnowLocation.Name = "lblLastKnowLocation";
             this.lblLastKnowLocation.Size = new System.Drawing.Size(156, 20);
@@ -325,7 +312,7 @@
             // 
             this.lblLastNotedTime.AutoSize = true;
             this.lblLastNotedTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastNotedTime.Location = new System.Drawing.Point(20, 111);
+            this.lblLastNotedTime.Location = new System.Drawing.Point(26, 77);
             this.lblLastNotedTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastNotedTime.Name = "lblLastNotedTime";
             this.lblLastNotedTime.Size = new System.Drawing.Size(155, 20);
@@ -336,7 +323,7 @@
             // 
             this.lblAttendanceInDay.AutoSize = true;
             this.lblAttendanceInDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendanceInDay.Location = new System.Drawing.Point(20, 145);
+            this.lblAttendanceInDay.Location = new System.Drawing.Point(26, 111);
             this.lblAttendanceInDay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAttendanceInDay.Name = "lblAttendanceInDay";
             this.lblAttendanceInDay.Size = new System.Drawing.Size(157, 20);
@@ -348,24 +335,62 @@
             this.panelAttendance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelAttendance.Controls.Add(this.lblEntryTime1);
             this.panelAttendance.Controls.Add(this.lblAttendanceInDay1);
-            this.panelAttendance.Controls.Add(this.lblExitTime1);
             this.panelAttendance.Controls.Add(this.lblLastNotedTime1);
             this.panelAttendance.Controls.Add(this.lblLastKnowLocation1);
             this.panelAttendance.Controls.Add(this.btnDetailsEntries);
             this.panelAttendance.Controls.Add(this.lblEntryTime);
             this.panelAttendance.Controls.Add(this.lblAttendanceInDay);
-            this.panelAttendance.Controls.Add(this.lblExitTime);
             this.panelAttendance.Controls.Add(this.lblLastNotedTime);
             this.panelAttendance.Controls.Add(this.lblLastKnowLocation);
-            this.panelAttendance.Location = new System.Drawing.Point(679, 314);
+            this.panelAttendance.Location = new System.Drawing.Point(687, 347);
             this.panelAttendance.Name = "panelAttendance";
-            this.panelAttendance.Size = new System.Drawing.Size(367, 225);
+            this.panelAttendance.Size = new System.Drawing.Size(358, 192);
             this.panelAttendance.TabIndex = 12100;
+            // 
+            // lblEntryTime1
+            // 
+            this.lblEntryTime1.AutoSize = true;
+            this.lblEntryTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEntryTime1.Location = new System.Drawing.Point(189, 9);
+            this.lblEntryTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEntryTime1.Name = "lblEntryTime1";
+            this.lblEntryTime1.Size = new System.Drawing.Size(0, 20);
+            this.lblEntryTime1.TabIndex = 12101;
+            // 
+            // lblAttendanceInDay1
+            // 
+            this.lblAttendanceInDay1.AutoSize = true;
+            this.lblAttendanceInDay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendanceInDay1.Location = new System.Drawing.Point(186, 111);
+            this.lblAttendanceInDay1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAttendanceInDay1.Name = "lblAttendanceInDay1";
+            this.lblAttendanceInDay1.Size = new System.Drawing.Size(0, 20);
+            this.lblAttendanceInDay1.TabIndex = 12105;
+            // 
+            // lblLastNotedTime1
+            // 
+            this.lblLastNotedTime1.AutoSize = true;
+            this.lblLastNotedTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastNotedTime1.Location = new System.Drawing.Point(186, 77);
+            this.lblLastNotedTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLastNotedTime1.Name = "lblLastNotedTime1";
+            this.lblLastNotedTime1.Size = new System.Drawing.Size(0, 20);
+            this.lblLastNotedTime1.TabIndex = 12104;
+            // 
+            // lblLastKnowLocation1
+            // 
+            this.lblLastKnowLocation1.AutoSize = true;
+            this.lblLastKnowLocation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastKnowLocation1.Location = new System.Drawing.Point(186, 43);
+            this.lblLastKnowLocation1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLastKnowLocation1.Name = "lblLastKnowLocation1";
+            this.lblLastKnowLocation1.Size = new System.Drawing.Size(0, 20);
+            this.lblLastKnowLocation1.TabIndex = 12103;
             // 
             // btnDetailsEntries
             // 
             this.btnDetailsEntries.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetailsEntries.Location = new System.Drawing.Point(129, 182);
+            this.btnDetailsEntries.Location = new System.Drawing.Point(135, 148);
             this.btnDetailsEntries.Name = "btnDetailsEntries";
             this.btnDetailsEntries.Size = new System.Drawing.Size(128, 31);
             this.btnDetailsEntries.TabIndex = 12100;
@@ -548,78 +573,54 @@
             this.lblClassTeacherContactNo1.Tag = "";
             this.lblClassTeacherContactNo1.Text = "ch";
             // 
-            // lblEntryTime1
-            // 
-            this.lblEntryTime1.AutoSize = true;
-            this.lblEntryTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntryTime1.Location = new System.Drawing.Point(180, 9);
-            this.lblEntryTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblEntryTime1.Name = "lblEntryTime1";
-            this.lblEntryTime1.Size = new System.Drawing.Size(152, 20);
-            this.lblEntryTime1.TabIndex = 12101;
-            this.lblEntryTime1.Text = "Entry Time                :";
-            // 
-            // lblAttendanceInDay1
-            // 
-            this.lblAttendanceInDay1.AutoSize = true;
-            this.lblAttendanceInDay1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAttendanceInDay1.Location = new System.Drawing.Point(180, 145);
-            this.lblAttendanceInDay1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAttendanceInDay1.Name = "lblAttendanceInDay1";
-            this.lblAttendanceInDay1.Size = new System.Drawing.Size(157, 20);
-            this.lblAttendanceInDay1.TabIndex = 12105;
-            this.lblAttendanceInDay1.Text = "Attendance in days  :";
-            // 
-            // lblExitTime1
-            // 
-            this.lblExitTime1.AutoSize = true;
-            this.lblExitTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExitTime1.Location = new System.Drawing.Point(179, 43);
-            this.lblExitTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblExitTime1.Name = "lblExitTime1";
-            this.lblExitTime1.Size = new System.Drawing.Size(153, 20);
-            this.lblExitTime1.TabIndex = 12102;
-            this.lblExitTime1.Text = "Exit Time                   :";
-            // 
-            // lblLastNotedTime1
-            // 
-            this.lblLastNotedTime1.AutoSize = true;
-            this.lblLastNotedTime1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastNotedTime1.Location = new System.Drawing.Point(180, 111);
-            this.lblLastNotedTime1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLastNotedTime1.Name = "lblLastNotedTime1";
-            this.lblLastNotedTime1.Size = new System.Drawing.Size(155, 20);
-            this.lblLastNotedTime1.TabIndex = 12104;
-            this.lblLastNotedTime1.Text = "Last noted time        :";
-            // 
-            // lblLastKnowLocation1
-            // 
-            this.lblLastKnowLocation1.AutoSize = true;
-            this.lblLastKnowLocation1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastKnowLocation1.Location = new System.Drawing.Point(180, 77);
-            this.lblLastKnowLocation1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLastKnowLocation1.Name = "lblLastKnowLocation1";
-            this.lblLastKnowLocation1.Size = new System.Drawing.Size(156, 20);
-            this.lblLastKnowLocation1.TabIndex = 12103;
-            this.lblLastKnowLocation1.Text = "Last know location   :";
-            // 
             // panelSearchTagId
             // 
             this.panelSearchTagId.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelSearchTagId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSearchTagId.Controls.Add(this.lblputoncardreader);
             this.panelSearchTagId.Controls.Add(this.label1);
-            this.panelSearchTagId.Controls.Add(this.btnPClear);
             this.panelSearchTagId.Controls.Add(this.btnPExit);
             this.panelSearchTagId.Controls.Add(this.btnGetTagId);
-            this.panelSearchTagId.Location = new System.Drawing.Point(130, 357);
+            this.panelSearchTagId.Location = new System.Drawing.Point(160, 443);
             this.panelSearchTagId.Name = "panelSearchTagId";
-            this.panelSearchTagId.Size = new System.Drawing.Size(100, 114);
+            this.panelSearchTagId.Size = new System.Drawing.Size(154, 63);
             this.panelSearchTagId.TabIndex = 12117;
+            // 
+            // lblputoncardreader
+            // 
+            this.lblputoncardreader.AutoSize = true;
+            this.lblputoncardreader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblputoncardreader.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblputoncardreader.Location = new System.Drawing.Point(70, 73);
+            this.lblputoncardreader.Name = "lblputoncardreader";
+            this.lblputoncardreader.Size = new System.Drawing.Size(231, 17);
+            this.lblputoncardreader.TabIndex = 12070;
+            this.lblputoncardreader.Text = "Please put on the card Reader";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(54, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(274, 20);
+            this.label1.TabIndex = 12069;
+            this.label1.Text = "Search Student data By Card Reader";
+            // 
+            // btnPExit
+            // 
+            this.btnPExit.Location = new System.Drawing.Point(249, 122);
+            this.btnPExit.Name = "btnPExit";
+            this.btnPExit.Size = new System.Drawing.Size(52, 23);
+            this.btnPExit.TabIndex = 3;
+            this.btnPExit.Text = "Exit";
+            this.btnPExit.UseVisualStyleBackColor = true;
+            this.btnPExit.Click += new System.EventHandler(this.btnPExit_Click);
             // 
             // btnGetTagId
             // 
-            this.btnGetTagId.Location = new System.Drawing.Point(38, 122);
+            this.btnGetTagId.Location = new System.Drawing.Point(73, 122);
             this.btnGetTagId.Name = "btnGetTagId";
             this.btnGetTagId.Size = new System.Drawing.Size(132, 23);
             this.btnGetTagId.TabIndex = 2;
@@ -638,43 +639,12 @@
             this.lblStudentId.TabIndex = 12118;
             this.lblStudentId.Text = "std";
             // 
-            // btnPExit
-            // 
-            this.btnPExit.Location = new System.Drawing.Point(290, 122);
-            this.btnPExit.Name = "btnPExit";
-            this.btnPExit.Size = new System.Drawing.Size(52, 23);
-            this.btnPExit.TabIndex = 3;
-            this.btnPExit.Text = "Exit";
-            this.btnPExit.UseVisualStyleBackColor = true;
-            this.btnPExit.Click += new System.EventHandler(this.btnPExit_Click);
-            // 
-            // btnPClear
-            // 
-            this.btnPClear.Location = new System.Drawing.Point(204, 122);
-            this.btnPClear.Name = "btnPClear";
-            this.btnPClear.Size = new System.Drawing.Size(56, 23);
-            this.btnPClear.TabIndex = 4;
-            this.btnPClear.Text = "Clear";
-            this.btnPClear.UseVisualStyleBackColor = true;
-            this.btnPClear.Click += new System.EventHandler(this.btnPClear_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 20);
-            this.label1.TabIndex = 12069;
-            this.label1.Text = "Search Student data By Card Reader";
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.Location = new System.Drawing.Point(456, 560);
+            this.panel1.Location = new System.Drawing.Point(451, 483);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(165, 38);
+            this.panel1.Size = new System.Drawing.Size(151, 63);
             this.panel1.TabIndex = 12120;
             // 
             // panelstudentinfo
@@ -717,21 +687,23 @@
             this.panelstudentinfo.Controls.Add(this.lblGuardianContactNo);
             this.panelstudentinfo.Controls.Add(this.lblClassTeacherContactNo);
             this.panelstudentinfo.Controls.Add(this.shapeContainer1);
-            this.panelstudentinfo.Location = new System.Drawing.Point(616, 144);
+            this.panelstudentinfo.Location = new System.Drawing.Point(516, 142);
             this.panelstudentinfo.Name = "panelstudentinfo";
-            this.panelstudentinfo.Size = new System.Drawing.Size(320, 170);
+            this.panelstudentinfo.Size = new System.Drawing.Size(211, 133);
             this.panelstudentinfo.TabIndex = 12121;
+            this.panelstudentinfo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelstudentinfo_Paint);
             // 
-            // label2
+            // btnStudentInfoExit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 208);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 20);
-            this.label2.TabIndex = 12060;
-            this.label2.Text = "Class Teacher          :";
+            this.btnStudentInfoExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnStudentInfoExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudentInfoExit.Location = new System.Drawing.Point(417, 499);
+            this.btnStudentInfoExit.Name = "btnStudentInfoExit";
+            this.btnStudentInfoExit.Size = new System.Drawing.Size(93, 40);
+            this.btnStudentInfoExit.TabIndex = 12120;
+            this.btnStudentInfoExit.Text = "Back";
+            this.btnStudentInfoExit.UseVisualStyleBackColor = false;
+            this.btnStudentInfoExit.Click += new System.EventHandler(this.btnStudentInfoExit_Click);
             // 
             // label3
             // 
@@ -744,6 +716,36 @@
             this.label3.TabIndex = 12058;
             this.label3.Text = "Class                         :";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(40, 208);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.TabIndex = 12060;
+            this.label2.Text = "Class Teacher          :";
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(211, 133);
+            this.shapeContainer1.TabIndex = 12119;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 48;
+            this.lineShape1.X2 = 1044;
+            this.lineShape1.Y1 = 56;
+            this.lineShape1.Y2 = 56;
+            // 
             // btnCardReader
             // 
             this.btnCardReader.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -751,6 +753,7 @@
             this.btnCardReader.Name = "btnCardReader";
             this.btnCardReader.Size = new System.Drawing.Size(207, 46);
             this.btnCardReader.TabIndex = 12122;
+            this.btnCardReader.Tag = "1";
             this.btnCardReader.Text = "Card Reader";
             this.btnCardReader.UseVisualStyleBackColor = true;
             this.btnCardReader.Click += new System.EventHandler(this.btnCardReader_Click);
@@ -762,20 +765,10 @@
             this.btnStudentDetails.Name = "btnStudentDetails";
             this.btnStudentDetails.Size = new System.Drawing.Size(225, 46);
             this.btnStudentDetails.TabIndex = 12123;
+            this.btnStudentDetails.Tag = "2";
             this.btnStudentDetails.Text = "Student Details";
             this.btnStudentDetails.UseVisualStyleBackColor = true;
             this.btnStudentDetails.Click += new System.EventHandler(this.btnStudentDetails_Click);
-            // 
-            // lblputoncardreader
-            // 
-            this.lblputoncardreader.AutoSize = true;
-            this.lblputoncardreader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblputoncardreader.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblputoncardreader.Location = new System.Drawing.Point(70, 73);
-            this.lblputoncardreader.Name = "lblputoncardreader";
-            this.lblputoncardreader.Size = new System.Drawing.Size(231, 17);
-            this.lblputoncardreader.TabIndex = 12070;
-            this.lblputoncardreader.Text = "Please put on the card Reader";
             // 
             // panelStudentDetails
             // 
@@ -795,89 +788,49 @@
             this.panelStudentDetails.Controls.Add(this.btnSearch);
             this.panelStudentDetails.Controls.Add(this.txtPStudentId);
             this.panelStudentDetails.Controls.Add(this.label4);
-            this.panelStudentDetails.Location = new System.Drawing.Point(703, 441);
+            this.panelStudentDetails.Location = new System.Drawing.Point(720, 349);
             this.panelStudentDetails.Name = "panelStudentDetails";
-            this.panelStudentDetails.Size = new System.Drawing.Size(215, 127);
+            this.panelStudentDetails.Size = new System.Drawing.Size(196, 89);
             this.panelStudentDetails.TabIndex = 12124;
             // 
-            // label4
+            // txtPClassTeacher
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(41, 38);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(533, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Search Student data By StudentId, Student Name, Roll No, Class";
+            this.txtPClassTeacher.Location = new System.Drawing.Point(278, 241);
+            this.txtPClassTeacher.Name = "txtPClassTeacher";
+            this.txtPClassTeacher.Size = new System.Drawing.Size(205, 20);
+            this.txtPClassTeacher.TabIndex = 5;
             // 
-            // txtPStudentId
+            // lblPClassTeacher
             // 
-            this.txtPStudentId.Location = new System.Drawing.Point(278, 93);
-            this.txtPStudentId.Name = "txtPStudentId";
-            this.txtPStudentId.Size = new System.Drawing.Size(205, 20);
-            this.txtPStudentId.TabIndex = 1;
+            this.lblPClassTeacher.AutoSize = true;
+            this.lblPClassTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPClassTeacher.Location = new System.Drawing.Point(133, 241);
+            this.lblPClassTeacher.Name = "lblPClassTeacher";
+            this.lblPClassTeacher.Size = new System.Drawing.Size(111, 17);
+            this.lblPClassTeacher.TabIndex = 12;
+            this.lblPClassTeacher.Text = "Class Teacher  :";
             // 
-            // btnSearch
+            // btnPSDClear
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(152, 290);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 30);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnPSDClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPSDClear.Location = new System.Drawing.Point(278, 290);
+            this.btnPSDClear.Name = "btnPSDClear";
+            this.btnPSDClear.Size = new System.Drawing.Size(75, 30);
+            this.btnPSDClear.TabIndex = 7;
+            this.btnPSDClear.Text = "Clear";
+            this.btnPSDClear.UseVisualStyleBackColor = true;
+            this.btnPSDClear.Click += new System.EventHandler(this.btnPSDClear_Click);
             // 
-            // txtPName
+            // btnExit
             // 
-            this.txtPName.Location = new System.Drawing.Point(278, 130);
-            this.txtPName.Name = "txtPName";
-            this.txtPName.Size = new System.Drawing.Size(205, 20);
-            this.txtPName.TabIndex = 3;
-            // 
-            // txtPRollNo
-            // 
-            this.txtPRollNo.Location = new System.Drawing.Point(278, 167);
-            this.txtPRollNo.Name = "txtPRollNo";
-            this.txtPRollNo.Size = new System.Drawing.Size(205, 20);
-            this.txtPRollNo.TabIndex = 4;
-            // 
-            // txtPClass
-            // 
-            this.txtPClass.Location = new System.Drawing.Point(278, 204);
-            this.txtPClass.Name = "txtPClass";
-            this.txtPClass.Size = new System.Drawing.Size(205, 20);
-            this.txtPClass.TabIndex = 5;
-            // 
-            // lblPStudentId
-            // 
-            this.lblPStudentId.AutoSize = true;
-            this.lblPStudentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPStudentId.Location = new System.Drawing.Point(133, 93);
-            this.lblPStudentId.Name = "lblPStudentId";
-            this.lblPStudentId.Size = new System.Drawing.Size(108, 17);
-            this.lblPStudentId.TabIndex = 6;
-            this.lblPStudentId.Text = "Student Id        :";
-            // 
-            // lblPClass
-            // 
-            this.lblPClass.AutoSize = true;
-            this.lblPClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPClass.Location = new System.Drawing.Point(133, 204);
-            this.lblPClass.Name = "lblPClass";
-            this.lblPClass.Size = new System.Drawing.Size(110, 17);
-            this.lblPClass.TabIndex = 7;
-            this.lblPClass.Text = "Class                :";
-            // 
-            // lblPRollNo
-            // 
-            this.lblPRollNo.AutoSize = true;
-            this.lblPRollNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPRollNo.Location = new System.Drawing.Point(133, 167);
-            this.lblPRollNo.Name = "lblPRollNo";
-            this.lblPRollNo.Size = new System.Drawing.Size(110, 17);
-            this.lblPRollNo.TabIndex = 8;
-            this.lblPRollNo.Text = "Roll No             :";
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(401, 290);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(58, 30);
+            this.btnExit.TabIndex = 8;
+            this.btnExit.Text = "Back";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // lblPName
             // 
@@ -889,27 +842,84 @@
             this.lblPName.TabIndex = 9;
             this.lblPName.Text = "Name               :";
             // 
-            // btnExit
+            // lblPRollNo
             // 
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(401, 290);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(58, 30);
-            this.btnExit.TabIndex = 10;
-            this.btnExit.Text = "Back";
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.lblPRollNo.AutoSize = true;
+            this.lblPRollNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPRollNo.Location = new System.Drawing.Point(133, 167);
+            this.lblPRollNo.Name = "lblPRollNo";
+            this.lblPRollNo.Size = new System.Drawing.Size(110, 17);
+            this.lblPRollNo.TabIndex = 8;
+            this.lblPRollNo.Text = "Roll No             :";
             // 
-            // btnPSDClear
+            // lblPClass
             // 
-            this.btnPSDClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPSDClear.Location = new System.Drawing.Point(278, 290);
-            this.btnPSDClear.Name = "btnPSDClear";
-            this.btnPSDClear.Size = new System.Drawing.Size(75, 30);
-            this.btnPSDClear.TabIndex = 11;
-            this.btnPSDClear.Text = "Clear";
-            this.btnPSDClear.UseVisualStyleBackColor = true;
-            this.btnPSDClear.Click += new System.EventHandler(this.btnPSDClear_Click);
+            this.lblPClass.AutoSize = true;
+            this.lblPClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPClass.Location = new System.Drawing.Point(133, 204);
+            this.lblPClass.Name = "lblPClass";
+            this.lblPClass.Size = new System.Drawing.Size(110, 17);
+            this.lblPClass.TabIndex = 7;
+            this.lblPClass.Text = "Class                :";
+            // 
+            // lblPStudentId
+            // 
+            this.lblPStudentId.AutoSize = true;
+            this.lblPStudentId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPStudentId.Location = new System.Drawing.Point(133, 93);
+            this.lblPStudentId.Name = "lblPStudentId";
+            this.lblPStudentId.Size = new System.Drawing.Size(108, 17);
+            this.lblPStudentId.TabIndex = 6;
+            this.lblPStudentId.Text = "Student Id        :";
+            // 
+            // txtPClass
+            // 
+            this.txtPClass.Location = new System.Drawing.Point(278, 204);
+            this.txtPClass.Name = "txtPClass";
+            this.txtPClass.Size = new System.Drawing.Size(205, 20);
+            this.txtPClass.TabIndex = 4;
+            // 
+            // txtPRollNo
+            // 
+            this.txtPRollNo.Location = new System.Drawing.Point(278, 167);
+            this.txtPRollNo.Name = "txtPRollNo";
+            this.txtPRollNo.Size = new System.Drawing.Size(205, 20);
+            this.txtPRollNo.TabIndex = 3;
+            // 
+            // txtPName
+            // 
+            this.txtPName.Location = new System.Drawing.Point(278, 130);
+            this.txtPName.Name = "txtPName";
+            this.txtPName.Size = new System.Drawing.Size(205, 20);
+            this.txtPName.TabIndex = 2;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(152, 290);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 30);
+            this.btnSearch.TabIndex = 6;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtPStudentId
+            // 
+            this.txtPStudentId.Location = new System.Drawing.Point(278, 93);
+            this.txtPStudentId.Name = "txtPStudentId";
+            this.txtPStudentId.Size = new System.Drawing.Size(205, 20);
+            this.txtPStudentId.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(41, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(533, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Search Student data By StudentId, Student Name, Roll No, Class";
             // 
             // btnstdExit
             // 
@@ -922,76 +932,41 @@
             this.btnstdExit.UseVisualStyleBackColor = true;
             this.btnstdExit.Click += new System.EventHandler(this.btnstdExit_Click);
             // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(320, 170);
-            this.shapeContainer1.TabIndex = 12119;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 48;
-            this.lineShape1.X2 = 1044;
-            this.lineShape1.Y1 = 56;
-            this.lineShape1.Y2 = 56;
-            // 
-            // btnStudentInfoExit
-            // 
-            this.btnStudentInfoExit.BackColor = System.Drawing.SystemColors.Control;
-            this.btnStudentInfoExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentInfoExit.Location = new System.Drawing.Point(417, 499);
-            this.btnStudentInfoExit.Name = "btnStudentInfoExit";
-            this.btnStudentInfoExit.Size = new System.Drawing.Size(93, 40);
-            this.btnStudentInfoExit.TabIndex = 12120;
-            this.btnStudentInfoExit.Text = "Back";
-            this.btnStudentInfoExit.UseVisualStyleBackColor = false;
-            this.btnStudentInfoExit.Click += new System.EventHandler(this.btnStudentInfoExit_Click);
-            // 
             // paneldatagrid
             // 
+            this.paneldatagrid.Controls.Add(this.btnBack);
             this.paneldatagrid.Controls.Add(this.datagridStudentInfo);
-            this.paneldatagrid.Location = new System.Drawing.Point(346, 389);
+            this.paneldatagrid.Location = new System.Drawing.Point(306, 292);
             this.paneldatagrid.Name = "paneldatagrid";
-            this.paneldatagrid.Size = new System.Drawing.Size(45, 39);
+            this.paneldatagrid.Size = new System.Drawing.Size(166, 121);
             this.paneldatagrid.TabIndex = 12126;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(486, 455);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(88, 37);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // datagridStudentInfo
             // 
             this.datagridStudentInfo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.datagridStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridStudentInfo.Location = new System.Drawing.Point(51, 34);
+            this.datagridStudentInfo.Location = new System.Drawing.Point(35, 24);
             this.datagridStudentInfo.Name = "datagridStudentInfo";
-            this.datagridStudentInfo.Size = new System.Drawing.Size(969, 402);
+            this.datagridStudentInfo.Size = new System.Drawing.Size(1033, 408);
             this.datagridStudentInfo.TabIndex = 0;
-            // 
-            // lblPClassTeacher
-            // 
-            this.lblPClassTeacher.AutoSize = true;
-            this.lblPClassTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPClassTeacher.Location = new System.Drawing.Point(133, 241);
-            this.lblPClassTeacher.Name = "lblPClassTeacher";
-            this.lblPClassTeacher.Size = new System.Drawing.Size(111, 17);
-            this.lblPClassTeacher.TabIndex = 12;
-            this.lblPClassTeacher.Text = "Class Teacher  :";
-            // 
-            // txtPClassTeacher
-            // 
-            this.txtPClassTeacher.Location = new System.Drawing.Point(278, 241);
-            this.txtPClassTeacher.Name = "txtPClassTeacher";
-            this.txtPClassTeacher.Size = new System.Drawing.Size(205, 20);
-            this.txtPClassTeacher.TabIndex = 13;
+            this.datagridStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridStudentInfo_CellClick);
             // 
             // frmSearchStudentByTagId
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1344, 741);
+            this.ClientSize = new System.Drawing.Size(1099, 611);
             this.Controls.Add(this.paneldatagrid);
             this.Controls.Add(this.btnstdExit);
             this.Controls.Add(this.panelStudentDetails);
@@ -1037,7 +1012,6 @@
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Label lblSection;
         private System.Windows.Forms.Label lblEntryTime;
-        private System.Windows.Forms.Label lblExitTime;
         private System.Windows.Forms.Label lblLastKnowLocation;
         private System.Windows.Forms.Label lblLastNotedTime;
         private System.Windows.Forms.Label lblAttendanceInDay;
@@ -1045,7 +1019,6 @@
         private System.Windows.Forms.Button btnDetailsEntries;
         private System.Windows.Forms.Label lblEntryTime1;
         private System.Windows.Forms.Label lblAttendanceInDay1;
-        private System.Windows.Forms.Label lblExitTime1;
         private System.Windows.Forms.Label lblLastNotedTime1;
         private System.Windows.Forms.Label lblLastKnowLocation1;
         private System.Windows.Forms.Label lblWarning1;
@@ -1068,7 +1041,6 @@
         private System.Windows.Forms.Button btnGetTagId;
         private System.Windows.Forms.Label lblStudentId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPClear;
         private System.Windows.Forms.Button btnPExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelstudentinfo;
@@ -1098,5 +1070,6 @@
         private System.Windows.Forms.DataGridView datagridStudentInfo;
         private System.Windows.Forms.TextBox txtPClassTeacher;
         private System.Windows.Forms.Label lblPClassTeacher;
+        private System.Windows.Forms.Button btnBack;
     }
 }

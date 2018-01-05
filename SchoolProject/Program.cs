@@ -18,7 +18,8 @@ namespace SchoolProject
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new frmRfTagId());
             Application.Run(new frmMainForm());
-           // Application.Run(new Form1());
+           // Application.Run(new frmShowLocation());
+          //   Application.Run(new Form1());
         }
     }
 }

@@ -16,5 +16,10 @@ namespace SchoolProject
         {
             InitializeComponent();
         }
+
+        private void frmStudentDetailsOrCardReader_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

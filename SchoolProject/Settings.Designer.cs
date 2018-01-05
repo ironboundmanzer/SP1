@@ -22,5 +22,16 @@ namespace SchoolProject {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-Q3V3MJF;Initial Catalog=SchoolATT;User ID=yunus;Password=yu@1" +
+            "23")]
+        public string SchoolATTConnectionString {
+            get {
+                return ((string)(this["SchoolATTConnectionString"]));
+            }
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyTransactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.monthlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.studentInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelLockscreen = new System.Windows.Forms.Panel();
@@ -58,7 +59,8 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.studentInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.locationWiseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allLocationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnLogin.SuspendLayout();
@@ -211,12 +213,24 @@
             this.monthlyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.monthlyToolStripMenuItem.Text = "Monthly";
             // 
+            // studentInfoToolStripMenuItem
+            // 
+            this.studentInfoToolStripMenuItem.BackColor = System.Drawing.Color.DarkRed;
+            this.studentInfoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.studentInfoToolStripMenuItem.Name = "studentInfoToolStripMenuItem";
+            this.studentInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.studentInfoToolStripMenuItem.Text = "Student Info";
+            this.studentInfoToolStripMenuItem.Click += new System.EventHandler(this.studentInfoToolStripMenuItem_Click);
+            // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.locationWiseToolStripMenuItem,
+            this.allLocationToolStripMenuItem});
             this.reportsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.reportsToolStripMenuItem.Text = "MIS";
             // 
             // lockToolStripMenuItem
             // 
@@ -229,9 +243,9 @@
             // 
             // panelLockscreen
             // 
-            this.panelLockscreen.Location = new System.Drawing.Point(942, 101);
+            this.panelLockscreen.Location = new System.Drawing.Point(862, 101);
             this.panelLockscreen.Name = "panelLockscreen";
-            this.panelLockscreen.Size = new System.Drawing.Size(61, 36);
+            this.panelLockscreen.Size = new System.Drawing.Size(90, 69);
             this.panelLockscreen.TabIndex = 102;
             this.panelLockscreen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelLockscreen_MouseClick);
             // 
@@ -374,14 +388,19 @@
             this.lineShape1.Y1 = 167;
             this.lineShape1.Y2 = 167;
             // 
-            // studentInfoToolStripMenuItem
+            // locationWiseToolStripMenuItem
             // 
-            this.studentInfoToolStripMenuItem.BackColor = System.Drawing.Color.DarkRed;
-            this.studentInfoToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.studentInfoToolStripMenuItem.Name = "studentInfoToolStripMenuItem";
-            this.studentInfoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.studentInfoToolStripMenuItem.Text = "Student Info";
-            this.studentInfoToolStripMenuItem.Click += new System.EventHandler(this.studentInfoToolStripMenuItem_Click);
+            this.locationWiseToolStripMenuItem.Name = "locationWiseToolStripMenuItem";
+            this.locationWiseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.locationWiseToolStripMenuItem.Text = "Location wise";
+            this.locationWiseToolStripMenuItem.Click += new System.EventHandler(this.locationWiseToolStripMenuItem_Click);
+            // 
+            // allLocationToolStripMenuItem
+            // 
+            this.allLocationToolStripMenuItem.Name = "allLocationToolStripMenuItem";
+            this.allLocationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.allLocationToolStripMenuItem.Text = "All Location";
+            this.allLocationToolStripMenuItem.Click += new System.EventHandler(this.allLocationToolStripMenuItem_Click);
             // 
             // frmMainForm
             // 
@@ -446,5 +465,7 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.ToolStripMenuItem personalizationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem locationWiseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allLocationToolStripMenuItem;
     }
 }

@@ -17,7 +17,10 @@ namespace SchoolProject
     {
         public string userId;
         public static string UserId;
-        public static string passingloginIdName;
+        public static string UserName;
+
+        Users userdalobj = new Users();
+
         public frmMainForm()
         {
             InitializeComponent();
@@ -54,6 +57,7 @@ namespace SchoolProject
 
         private void frmMainForm_Load(object sender, EventArgs e)
         {
+
             fileToolStripMenuItem.Enabled = false;
             mastersToolStripMenuItem.Enabled = false;
             transactionToolStripMenuItem.Enabled = false;
@@ -207,16 +211,24 @@ namespace SchoolProject
                 txtName.Focus();
             }
             Login(txtName.Text, txtPassword.Text);
+            frmMainForm.UserId = userdalobj.ReturnId(txtName.Text, txtPassword.Text);
+            frmMainForm.UserName = userdalobj.ReturnName(txtName.Text, txtPassword.Text);
+
+            frmShowLocation fshowloc = new frmShowLocation();
+            fshowloc.MdiParent = this;
+            fshowloc.Show();
         }
 
         private void Login(string name, string password)
         {
             Users usersobj = new Users();
+            frmMainForm fmainform = new frmMainForm();
             frmLogin flogin = new frmLogin();
             UserId = usersobj.LoginUser(name, password);
             if (UserId != "")
             {
-              //  menuStrip1.Enabled = true;
+                frmMainForm.UserId = UserId;
+                menuStrip1.Enabled = true;
                 fileToolStripMenuItem.Enabled = true;
                 mastersToolStripMenuItem.Enabled = true;
                 transactionToolStripMenuItem.Enabled = true;
@@ -294,8 +306,22 @@ namespace SchoolProject
             frmSearchStudentByTagId fSearchStudent = new frmSearchStudentByTagId();
             fSearchStudent.MdiParent = this;
             this.Top = 50;
-            this.Left = 0;
+           // this.Left = 0;
             fSearchStudent.Show();
+        }
+
+        private void locationWiseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLocation fshowloc = new frmShowLocation();
+            fshowloc.MdiParent = this;
+           // this.Top = 0;
+           // this.Left = 0;
+            fshowloc.Show();
+        }
+
+        private void allLocationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
 

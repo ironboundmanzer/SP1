@@ -28,9 +28,91 @@ namespace School_Project_Devendra
 
         private void frmStudentRegistration_Load(object sender, EventArgs e)
         {
+            panelDataDelete.Visible = false;
+            if (cbRegistrationType.Text != "SELECT REGISTRATION TYPE")
+            {
+                lblName.Enabled = true;
+                txtName.Enabled = true;
+                lblRollNo.Enabled = true;
+                txtRollNo.Enabled = true;
+                lblDOB.Enabled = true;
+                txtDOB.Enabled = true;
+                dTPickerDOB.Enabled = true;
+                lblBloodGroup.Enabled = true;
+                txtBloodGroup.Enabled = true;
+                lblHomeAddress.Enabled = true;
+                txtHomeAddress.Enabled = true;
+                lblNotes.Enabled = true;
+                txtNotes.Enabled = true;
+                lblClass.Enabled = true;
+                txtClass.Enabled = true;
+                lblSection.Enabled = true;
+                txtSection.Enabled = true;
+                lblClassTeacher.Enabled = true;
+                txtClassTeacher.Enabled = true;
+                lblClassTeacherContactNo.Enabled = true;
+                txtClassTeacherContactNo.Enabled = true;
+                lblFatherName.Enabled = true;
+                txtFatherName.Enabled = true;
+                lblGender.Enabled = true;
+                cbGender.Enabled = true;
+                lblAadhar.Enabled = true;
+                txtAadharNo.Enabled = true;
+                lblSiblingInfo.Enabled = true;
+                txtSiblingInformation.Enabled = true;
+                lblGuardianName.Enabled = true;
+                txtGuardianName.Enabled = true;
+                lblGuardianContactNo.Enabled = true;
+                txtGuardianContactNo.Enabled = true;
+                lblJoinSchoolDate.Enabled = true;
+                txtJoinedSchoolDate.Enabled = true;
+                dTPickerJoinSchoolDate.Enabled = true;
+                btnBrowsePhoto.Enabled = true;
+            }
+            else
+            {
+                lblName.Enabled = false;
+                txtName.Enabled = false;
+                lblRollNo.Enabled = false;
+                txtRollNo.Enabled = false;
+                lblDOB.Enabled = false;
+                txtDOB.Enabled = false;
+                dTPickerDOB.Enabled = false;
+                lblBloodGroup.Enabled = false;
+                txtBloodGroup.Enabled = false;
+                lblHomeAddress.Enabled = false;
+                txtHomeAddress.Enabled = false;
+                lblNotes.Enabled = false;
+                txtNotes.Enabled = false;
+                lblClass.Enabled = false;
+                txtClass.Enabled = false;
+                lblSection.Enabled = false;
+                txtSection.Enabled = false;
+                lblClassTeacher.Enabled = false;
+                txtClassTeacher.Enabled = false;
+                lblClassTeacherContactNo.Enabled = false;
+                txtClassTeacherContactNo.Enabled = false;
+                lblFatherName.Enabled = false;
+                txtFatherName.Enabled = false;
+                lblGender.Enabled = false;
+                cbGender.Enabled = false;
+                lblAadhar.Enabled = false;
+                txtAadharNo.Enabled = false;
+                lblSiblingInfo.Enabled = false;
+                txtSiblingInformation.Enabled = false;
+                lblGuardianName.Enabled = false;
+                txtGuardianName.Enabled = false;
+                lblGuardianContactNo.Enabled = false;
+                txtGuardianContactNo.Enabled = false;
+                lblJoinSchoolDate.Enabled = false;
+                txtJoinedSchoolDate.Enabled = false;
+                dTPickerJoinSchoolDate.Enabled = false;
+                btnBrowsePhoto.Enabled = false;
+            }
+
             if (frmStudentRegistration.RegistrationCount == 1)
             {
-               
+
             }
             else if (SchoolProject.frmLocation.locationCount == 1)
             {
@@ -52,7 +134,7 @@ namespace School_Project_Devendra
         private void ShowData()
         {
             dataGridView1.DataSource = stddal.ShowStudent();
-           // int i= dataGridView1.RowCount;
+            // int i= dataGridView1.RowCount;
         }
 
         // Open file for Image
@@ -105,6 +187,7 @@ namespace School_Project_Devendra
             GetId();
             string studentid = registerno;
             Student std = new Student();
+            std.RegistrationType = cbRegistrationType.Text;
             std.StudentId = studentid;
             std.Name = txtName.Text;
             std.Gender = cbGender.Text;
@@ -127,8 +210,9 @@ namespace School_Project_Devendra
             Clear();
             stddal.StudentRegistration(std);
             // MessageBox.Show(registerno);
-            lblRegistrationNo.Text = registerno;
+            lblRegistrationNo.Text = studentid;
             ShowData();
+            MessageBox.Show("Registration is Successfull");
         }
 
         // Student Update Method
@@ -139,6 +223,15 @@ namespace School_Project_Devendra
                 Student std = new Student();
                 std.StudentId = StudentId;
                 std.Name = txtName.Text;
+              //  std.RegistrationType = cbRegistrationType.Text;
+                if (cbRegistrationType.Text != "SELECT REGISTRATION TYPE")
+                {
+                    std.RegistrationType = cbRegistrationType.Text;
+                }
+                else
+                {
+                    MessageBox.Show("Please Select Registration Type");
+                }
                 if (cbGender.Text != "Select Gender")
                 {
                     std.Gender = cbGender.Text;
@@ -167,6 +260,7 @@ namespace School_Project_Devendra
 
                 stddal.StudentUpdateAndSave(std);
                 ShowData();
+                MessageBox.Show("Your data is Successfull");
             }
             else
             {
@@ -182,10 +276,10 @@ namespace School_Project_Devendra
             string strlastfourdigit = getstudentId.Substring(4, 4);
             string cYear = "";
             cYear = (DateTime.Now.Year).ToString();
-            //string id = stddal.GetId();
-            //id = (Convert.ToInt32(id) + 1).ToString("0000") ;
-            //registerno = cYear + Convert.ToString(id);
-            //lblRegistrationNo.Text = registerno;
+            string id = stddal.GetId();
+            id = (Convert.ToInt32(id) + 1).ToString("0000");
+            registerno = cYear + Convert.ToString(id);
+            lblRegistrationNo.Text = registerno;
 
             if (Year == cYear)
             {
@@ -198,6 +292,7 @@ namespace School_Project_Devendra
                 strlastfourdigit = (Convert.ToInt32(strlastfourdigit) + 1).ToString("0000");
                 registerno = cYear + Convert.ToString(strlastfourdigit);
             }
+            // registerno = "20180000";
             lblRegistrationNo.Text = registerno;
         }
 
@@ -205,10 +300,22 @@ namespace School_Project_Devendra
         {
             Student std = new Student();
             std.StudentId = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            std.RegistrationType = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            cbRegistrationType.Text = std.RegistrationType;
+            ShowStudent();
+            //if (std.RegistrationType == "STUDENT")
+            //{
+
+            //}
+            //else
+            //{
+
+            //}
 
             lblRegistrationNo.Text = std.StudentId;
 
             std = stddal.ShowDataOnTextBox(std.StudentId);
+            cbRegistrationType.Text = std.RegistrationType;
             txtName.Text = std.Name;
             txtRollNo.Text = std.RollNo;
             txtDOB.Text = std.DOB;
@@ -235,7 +342,12 @@ namespace School_Project_Devendra
 
         private void btnSaveAndUpdate_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == "")
+            if (cbRegistrationType.Text == "SELECT REGISTRATION TYPE")
+            {
+                MessageBox.Show("Please Select Registration Type");
+                cbRegistrationType.Focus();
+            }
+            else if (txtName.Text == "")
             {
                 MessageBox.Show("Name is Required");
                 txtName.Focus();
@@ -265,21 +377,21 @@ namespace School_Project_Devendra
                 MessageBox.Show("Required is Adhar card no");
                 txtAadharNo.Focus();
             }
-            else if (txtClass.Text == "")
-            {
-                MessageBox.Show("Required is Class");
-                txtClass.Focus();
-            }
+            //else if (txtClass.Text == "")
+            //{
+            //    MessageBox.Show("Required is Class");
+            //    txtClass.Focus();
+            //}
             else if (txtBloodGroup.Text == "")
             {
                 MessageBox.Show("Required is Blood Group");
                 txtBloodGroup.Focus();
             }
-            else if (txtGuardianName.Text == "")
-            {
-                MessageBox.Show("Required is Guardian Name");
-                txtGuardianName.Focus();
-            }
+            //else if (txtGuardianName.Text == "")
+            //{
+            //    MessageBox.Show("Required is Guardian Name");
+            //    txtGuardianName.Focus();
+            //}
             else if (txtGuardianContactNo.Text == "")
             {
                 MessageBox.Show("Required is Guardian Contact No");
@@ -295,16 +407,16 @@ namespace School_Project_Devendra
                 MessageBox.Show("Please Select Date of School Join");
                 dTPickerJoinSchoolDate.Focus();
             }
-            else if (txtClassTeacher.Text == "")
-            {
-                MessageBox.Show("Required is Class Teacher Name");
-                txtClassTeacher.Focus();
-            }
-            else if (txtClassTeacherContactNo.Text == "")
-            {
-                MessageBox.Show("Required is Class Teacher Contact No");
-                txtClassTeacherContactNo.Focus();
-            }
+            //else if (txtClassTeacher.Text == "")
+            //{
+            //    MessageBox.Show("Required is Class Teacher Name");
+            //    txtClassTeacher.Focus();
+            //}
+            //else if (txtClassTeacherContactNo.Text == "")
+            //{
+            //    MessageBox.Show("Required is Class Teacher Contact No");
+            //    txtClassTeacherContactNo.Focus();
+            //}
             else if (pbStudentPhoto.Image == null)
             {
                 MessageBox.Show("Please Browse Photo");
@@ -312,10 +424,9 @@ namespace School_Project_Devendra
             }
 
             if (txtName.Text == "" || txtFatherName.Text == "" || txtRollNo.Text == "" || cbGender.Text == "Select Gender"
-                && txtDOB.Text == "" || txtAadharNo.Text == "" || txtClass.Text == "" || txtBloodGroup.Text == ""
-                || txtGuardianName.Text == "" || txtGuardianContactNo.Text == "" || txtHomeAddress.Text == ""
-                || txtJoinedSchoolDate.Text == "" || txtClassTeacher.Text == "" || txtClassTeacherContactNo.Text == ""
-                || pbStudentPhoto.Image == null)
+                && txtDOB.Text == "" || txtAadharNo.Text == "" || txtBloodGroup.Text == ""
+                || txtGuardianContactNo.Text == "" || txtHomeAddress.Text == ""
+                || txtJoinedSchoolDate.Text == ""  || pbStudentPhoto.Image == null)
             {
             }
             else
@@ -339,16 +450,18 @@ namespace School_Project_Devendra
         {
             if (lblRegistrationNo.Text != "")
             {
-                stddal.StudentDelete(lblRegistrationNo.Text);
+               // stddal.StudentDelete(lblRegistrationNo.Text);
+              //  MessageBox.Show("Your data is Deleted");
+               // MessageBox.Show("",lblRegistrationNo.Text,"","Ok");
+                panelDataDelete.Visible = true;
+                panelDataDelete.Focus();
+                EnabledFalse();
             }
             else
             {
                 MessageBox.Show("Please click on datagridview");
             }
-            ShowData();
-            btnSaveAndUpdate.Text = "Save";
-            txtName.Focus();
-            txtName.TabIndex = 107;
+             
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -382,6 +495,7 @@ namespace School_Project_Devendra
             pbStudentPhoto.Image = null;
             btnSaveAndUpdate.Text = "Save";
             lblRegistrationNo.Text = "";
+            cbRegistrationType.Text = "SELECT REGISTRATION TYPE";
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -447,7 +561,7 @@ namespace School_Project_Devendra
 
         private void txtRollNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar >= 65 && e.KeyChar <= 90 || e.KeyChar >= 97 && e.KeyChar <= 122 || e.KeyChar >= 48 && e.KeyChar <= 57 
+            if (e.KeyChar >= 65 && e.KeyChar <= 90 || e.KeyChar >= 97 && e.KeyChar <= 122 || e.KeyChar >= 48 && e.KeyChar <= 57
                 || e.KeyChar == 8)
             {
                 e.Handled = false;
@@ -662,7 +776,7 @@ namespace School_Project_Devendra
                 int totalDays = Convert.ToInt32((DateTime.UtcNow.Date - fromdate.Date).TotalDays);
                 int totalDays1 = Convert.ToInt32((DateTime.UtcNow.Date - fromdate1.Date).TotalDays);
 
-                if (totalDays <= 0)
+                if (totalDays < 0)
                 {
                     MessageBox.Show("Do not allow this date");
                 }
@@ -686,7 +800,372 @@ namespace School_Project_Devendra
 
         private void txtName_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show(e.KeyValue.ToString());
+            //  MessageBox.Show(e.KeyValue.ToString());
+        }
+
+        private void dTPickerDOB_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbRegistrationType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowStudent();
+            if (cbRegistrationType.Text == "STUDENT")
+            {
+                lblRollNo.Text = "Roll No                       :";
+                lblGuardianContactNo.Text = "Guardian Contact No   :";
+                lblClass.Visible = true;
+                txtClass.Visible = true;
+                lblSection.Visible = true;
+                txtSection.Visible = true;
+                lblClassTeacher.Visible = true;
+                txtClassTeacher.Visible = true;
+                lblClassTeacherContactNo.Visible = true;
+                txtClassTeacherContactNo.Visible = true;
+
+                lblSiblingInfo.Visible = true;
+                txtSiblingInformation.Visible = true;
+                lblGuardianName.Visible = true;
+                txtGuardianName.Visible = true;
+              //  lblGuardianContactNo.Visible = true;
+              //  txtGuardianContactNo.Visible = true;
+
+                lblBloodGroup.Location = new Point(22, 227);
+                txtBloodGroup.Location = new Point(202, 229);
+                lblHomeAddress.Location = new Point(22, 257);
+                txtHomeAddress.Location = new Point(202, 254);
+                lblNotes.Location = new Point(22, 340);
+                txtNotes.Location = new Point(202, 337);
+                lblJoinSchoolDate.Location = new Point(468, 272);
+                txtJoinedSchoolDate.Location = new Point(668, 272);
+                dTPickerJoinSchoolDate.Location = new Point(884, 272);
+                lblGuardianContactNo.Location = new Point(468, 242);
+                txtGuardianContactNo.Location = new Point(668, 246);
+            }
+            else if (cbRegistrationType.Text == "FACULTY")
+            {
+                lblRollNo.Text = "Faculty No                 :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+              //  lblGuardianContactNo.Visible = false;
+              //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(22, 197);
+                txtBloodGroup.Location = new Point(202, 199);
+                lblHomeAddress.Location = new Point(22, 229);
+                txtHomeAddress.Location = new Point(202, 229);
+                lblNotes.Location = new Point(22, 284);
+                txtNotes.Location = new Point(202, 284);
+                lblJoinSchoolDate.Location = new Point(468, 188);
+                txtJoinedSchoolDate.Location = new Point(668, 190);
+                dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(468, 216);
+                txtGuardianContactNo.Location = new Point(668, 218);
+            }
+            else if (cbRegistrationType.Text == "HOUSE KEEPING")
+            {
+                lblRollNo.Text = "House keeping No   :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+                //  lblGuardianContactNo.Visible = false;
+                //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(22, 197);
+                txtBloodGroup.Location = new Point(202, 199);
+                lblHomeAddress.Location = new Point(22, 229);
+                txtHomeAddress.Location = new Point(202, 229);
+                lblNotes.Location = new Point(22, 284);
+                txtNotes.Location = new Point(202, 284);
+                lblJoinSchoolDate.Location = new Point(468, 188);
+                txtJoinedSchoolDate.Location = new Point(668, 190);
+                dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(468, 216);
+                txtGuardianContactNo.Location = new Point(668, 218);
+            }
+            else if (cbRegistrationType.Text == "GUEST")
+            {
+                lblRollNo.Text = "Guest No                   :";
+                lblGuardianContactNo.Text = "Contact No                     :";
+                lblClass.Visible = false;
+                txtClass.Visible = false;
+                lblSection.Visible = false;
+                txtSection.Visible = false;
+                lblClassTeacher.Visible = false;
+                txtClassTeacher.Visible = false;
+                lblClassTeacherContactNo.Visible = false;
+                txtClassTeacherContactNo.Visible = false;
+
+                lblSiblingInfo.Visible = false;
+                txtSiblingInformation.Visible = false;
+                lblGuardianName.Visible = false;
+                txtGuardianName.Visible = false;
+                //  lblGuardianContactNo.Visible = false;
+                //  txtGuardianContactNo.Visible = false;
+
+                //  Location change 
+                lblBloodGroup.Location = new Point(22, 197);
+                txtBloodGroup.Location = new Point(202, 199);
+                lblHomeAddress.Location = new Point(22, 229);
+                txtHomeAddress.Location = new Point(202, 229);
+                lblNotes.Location = new Point(22, 284);
+                txtNotes.Location = new Point(202, 284);
+                lblJoinSchoolDate.Location = new Point(468, 188);
+                txtJoinedSchoolDate.Location = new Point(668, 190);
+                dTPickerJoinSchoolDate.Location = new Point(884, 190);
+                lblGuardianContactNo.Location = new Point(468, 216);
+                txtGuardianContactNo.Location = new Point(668, 218);
+            }
+        }
+
+        private void ShowStudent()
+        {
+            if (cbRegistrationType.Text != "SELECT REGISTRATION TYPE")
+            {
+                lblName.Enabled = true;
+                txtName.Enabled = true;
+                lblRollNo.Enabled = true;
+                txtRollNo.Enabled = true;
+                lblDOB.Enabled = true;
+                txtDOB.Enabled = true;
+                dTPickerDOB.Enabled = true;
+                lblBloodGroup.Enabled = true;
+                txtBloodGroup.Enabled = true;
+                lblHomeAddress.Enabled = true;
+                txtHomeAddress.Enabled = true;
+                lblNotes.Enabled = true;
+                txtNotes.Enabled = true;
+                lblClass.Enabled = true;
+                txtClass.Enabled = true;
+                lblSection.Enabled = true;
+                txtSection.Enabled = true;
+                lblClassTeacher.Enabled = true;
+                txtClassTeacher.Enabled = true;
+                lblClassTeacherContactNo.Enabled = true;
+                txtClassTeacherContactNo.Enabled = true;
+                lblFatherName.Enabled = true;
+                txtFatherName.Enabled = true;
+                lblGender.Enabled = true;
+                cbGender.Enabled = true;
+                lblAadhar.Enabled = true;
+                txtAadharNo.Enabled = true;
+                lblSiblingInfo.Enabled = true;
+                txtSiblingInformation.Enabled = true;
+                lblGuardianName.Enabled = true;
+                txtGuardianName.Enabled = true;
+                lblGuardianContactNo.Enabled = true;
+                txtGuardianContactNo.Enabled = true;
+                lblJoinSchoolDate.Enabled = true;
+                txtJoinedSchoolDate.Enabled = true;
+                dTPickerJoinSchoolDate.Enabled = true;
+                btnBrowsePhoto.Enabled = true;
+            }
+            else
+            {
+                lblName.Enabled = false;
+                txtName.Enabled = false;
+                lblRollNo.Enabled = false;
+                txtRollNo.Enabled = false;
+                lblDOB.Enabled = false;
+                txtDOB.Enabled = false;
+                dTPickerDOB.Enabled = false;
+                lblBloodGroup.Enabled = false;
+                txtBloodGroup.Enabled = false;
+                lblHomeAddress.Enabled = false;
+                txtHomeAddress.Enabled = false;
+                lblNotes.Enabled = false;
+                txtNotes.Enabled = false;
+                lblClass.Enabled = false;
+                txtClass.Enabled = false;
+                lblSection.Enabled = false;
+                txtSection.Enabled = false;
+                lblClassTeacher.Enabled = false;
+                txtClassTeacher.Enabled = false;
+                lblClassTeacherContactNo.Enabled = false;
+                txtClassTeacherContactNo.Enabled = false;
+                lblFatherName.Enabled = false;
+                txtFatherName.Enabled = false;
+                lblGender.Enabled = false;
+                cbGender.Enabled = false;
+                lblAadhar.Enabled = false;
+                txtAadharNo.Enabled = false;
+                lblSiblingInfo.Enabled = false;
+                txtSiblingInformation.Enabled = false;
+                lblGuardianName.Enabled = false;
+                txtGuardianName.Enabled = false;
+                lblGuardianContactNo.Enabled = false;
+                txtGuardianContactNo.Enabled = false;
+                lblJoinSchoolDate.Enabled = false;
+                txtJoinedSchoolDate.Enabled = false;
+                dTPickerJoinSchoolDate.Enabled = false;
+                btnBrowsePhoto.Enabled = false;
+            }
+        }
+
+        private void dTPickerJoinSchoolDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            if (lblRegistrationNo.Text != "")
+            {
+                stddal.StudentDelete(lblRegistrationNo.Text);
+                MessageBox.Show("Your data is Deleted");
+            }
+            else
+            {
+                MessageBox.Show("Please click on datagridview");
+            }
+            ShowData();
+            btnSaveAndUpdate.Text = "Save";
+            txtName.Focus();
+            txtName.TabIndex = 107;
+            panelDataDelete.Visible = false;
+            EnabledTrue();
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            panelDataDelete.Visible = false;
+            EnabledTrue();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            panelDataDelete.Visible = false;
+            EnabledTrue();
+        }
+
+        private void EnabledTrue()
+        {
+            lblName.Enabled = true;
+            txtName.Enabled = true;
+            lblRollNo.Enabled = true;
+            txtRollNo.Enabled = true;
+            lblDOB.Enabled = true;
+            txtDOB.Enabled = true;
+            dTPickerDOB.Enabled = true;
+            lblBloodGroup.Enabled = true;
+            txtBloodGroup.Enabled = true;
+            lblHomeAddress.Enabled = true;
+            txtHomeAddress.Enabled = true;
+            lblNotes.Enabled = true;
+            txtNotes.Enabled = true;
+            lblClass.Enabled = true;
+            txtClass.Enabled = true;
+            lblSection.Enabled = true;
+            txtSection.Enabled = true;
+            lblClassTeacher.Enabled = true;
+            txtClassTeacher.Enabled = true;
+            lblClassTeacherContactNo.Enabled = true;
+            txtClassTeacherContactNo.Enabled = true;
+            lblFatherName.Enabled = true;
+            txtFatherName.Enabled = true;
+            lblGender.Enabled = true;
+            cbGender.Enabled = true;
+            lblAadhar.Enabled = true;
+            txtAadharNo.Enabled = true;
+            lblSiblingInfo.Enabled = true;
+            txtSiblingInformation.Enabled = true;
+            lblGuardianName.Enabled = true;
+            txtGuardianName.Enabled = true;
+            lblGuardianContactNo.Enabled = true;
+            txtGuardianContactNo.Enabled = true;
+            lblJoinSchoolDate.Enabled = true;
+            txtJoinedSchoolDate.Enabled = true;
+            dTPickerJoinSchoolDate.Enabled = true;
+            btnBrowsePhoto.Enabled = true;
+
+            lblRegistrationType.Enabled = true;
+            cbRegistrationType.Enabled = true;
+            lblRegistrationNo.Enabled = true;
+            label1.Enabled = true;
+            dataGridView1.Enabled = true;
+
+            btnSaveAndUpdate.Enabled = true;
+            btnDelete.Enabled = true;
+            btnExit.Enabled = true;
+            btnClear.Enabled = true;
+        }
+
+        private void EnabledFalse()
+        {
+            lblName.Enabled = false;
+            txtName.Enabled = false;
+            lblRollNo.Enabled = false;
+            txtRollNo.Enabled = false;
+            lblDOB.Enabled = false;
+            txtDOB.Enabled = false;
+            dTPickerDOB.Enabled = false;
+            lblBloodGroup.Enabled = false;
+            txtBloodGroup.Enabled = false;
+            lblHomeAddress.Enabled = false;
+            txtHomeAddress.Enabled = false;
+            lblNotes.Enabled = false;
+            txtNotes.Enabled = false;
+            lblClass.Enabled = false;
+            txtClass.Enabled = false;
+            lblSection.Enabled = false;
+            txtSection.Enabled = false;
+            lblClassTeacher.Enabled = false;
+            txtClassTeacher.Enabled = false;
+            lblClassTeacherContactNo.Enabled = false;
+            txtClassTeacherContactNo.Enabled = false;
+            lblFatherName.Enabled = false;
+            txtFatherName.Enabled = false;
+            lblGender.Enabled = false;
+            cbGender.Enabled = false;
+            lblAadhar.Enabled = false;
+            txtAadharNo.Enabled = false;
+            lblSiblingInfo.Enabled = false;
+            txtSiblingInformation.Enabled = false;
+            lblGuardianName.Enabled = false;
+            txtGuardianName.Enabled = false;
+            lblGuardianContactNo.Enabled = false;
+            txtGuardianContactNo.Enabled = false;
+            lblJoinSchoolDate.Enabled = false;
+            txtJoinedSchoolDate.Enabled = false;
+            dTPickerJoinSchoolDate.Enabled = false;
+            btnBrowsePhoto.Enabled = false;
+
+            lblRegistrationType.Enabled = false;
+            cbRegistrationType.Enabled = false;
+            label1.Enabled = false;
+            lblRegistrationNo.Enabled = false;
+            dataGridView1.Enabled = false;
+
+            btnSaveAndUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            btnExit.Enabled = false;
+            btnClear.Enabled = false;
         }
 
     }

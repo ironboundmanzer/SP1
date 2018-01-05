@@ -36,7 +36,10 @@ C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.csproj
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmMainForm.resources
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmLocation.resources
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmUsers.resources
-C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.csprojResolveAssemblyReference.cache
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmpersonalization.resources
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmSearchStudentByTagId.resources
 C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmStudentDetailsOrCardReader.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmShowLocation.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmAttendaceByLocation.resources
+C:\Users\admin\Documents\GitHub\SP1\SchoolProject\obj\Debug\SchoolProject.frmAttendanceDetails.resources

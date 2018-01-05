@@ -6,9 +6,21 @@ using System.Threading.Tasks;
 
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SchoolProject.Database
 {
+    class LocationImageClass
+    {
+        public string LocationId { get; set; }
+        public string LocationName { get; set; }
+        public string LocationAddress { get; set; }
+        public string UpdatedBy { get; set; }
+        public string Date { get; set; }
+        public string Time { get; set; }
+        public string LocationImage { get; set; }
+    }
+
     class Location
     {
         public string LocationId { get; set; }
@@ -21,7 +33,7 @@ namespace SchoolProject.Database
 
     class LocationDAL
     {
-        string cs = @"Data Source=DESKTOP-Q3V3MJF\MEGMASQLSERVER;Initial Catalog=School;Integrated Security=True";
+        string cs = ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
         SqlConnection con = null;
         SqlCommand cmd = null;
 
@@ -61,26 +73,24 @@ namespace SchoolProject.Database
             return lstlocation;
         }
 
-        public Location ShowLocation()
+        public LocationImageClass ShowLocation(string locationId)
         {
-            Location locobj = new Location();
+            LocationImageClass locobj = new LocationImageClass();
             con = new SqlConnection(cs);
-            cmd = new SqlCommand("Select Location_Id,LocationName,Location_Address,Updated_By,Date from tblLocation", con);
+            cmd = new SqlCommand("Select LocationName,Location_Address,LocationImage from tblLocation where Location_Id=@locationId", con);
             try
             {
                 cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("locationId", locationId);
                 con.Open();
                 SqlDataReader sdr = cmd.ExecuteReader();
                 if (sdr.HasRows)
                 {
                     while (sdr.Read())
                     {
-                        locobj.LocationId = sdr["Location_Id"].ToString();
                         locobj.LocationName = sdr["LocationName"].ToString();
                         locobj.LocationAddress = sdr["Location_Address"].ToString();
-                        locobj.UpdatedBy = sdr["Updated_By"].ToString();
-                        locobj.Date = sdr["Date"].ToString();
-                        locobj.Time = sdr["Time"].ToString();
+                        locobj.LocationImage = sdr["LocationImage"].ToString();
                     }
                 }
             }
@@ -95,6 +105,40 @@ namespace SchoolProject.Database
             return locobj;
         }
 
+        //public Location ShowLocation()
+        //{
+        //    Location locobj = new Location();
+        //    con = new SqlConnection(cs);
+        //    cmd = new SqlCommand("Select Location_Id,LocationName,Location_Address,Updated_By,Date from tblLocation", con);
+        //    try
+        //    {
+        //        cmd.CommandType = CommandType.Text;
+        //        con.Open();
+        //        SqlDataReader sdr = cmd.ExecuteReader();
+        //        if (sdr.HasRows)
+        //        {
+        //            while (sdr.Read())
+        //            {
+        //                locobj.LocationId = sdr["Location_Id"].ToString();
+        //                locobj.LocationName = sdr["LocationName"].ToString();
+        //                locobj.LocationAddress = sdr["Location_Address"].ToString();
+        //                locobj.UpdatedBy = sdr["Updated_By"].ToString();
+        //                locobj.Date = sdr["Date"].ToString();
+        //                locobj.Time = sdr["Time"].ToString();
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //    return locobj;
+        //}
+
         public string GetLocationId()
         {
             SqlConnection con = new SqlConnection(cs);
@@ -105,7 +149,7 @@ namespace SchoolProject.Database
             return id;
         }
 
-        public void InsertLocation(Location locobj)
+        public void InsertLocation(LocationImageClass locobj)
         {
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("usp_InsertLocation", con);
@@ -116,11 +160,12 @@ namespace SchoolProject.Database
             cmd.Parameters.AddWithValue("@update_by",locobj.UpdatedBy);
             cmd.Parameters.AddWithValue("@date", locobj.Date);
             cmd.Parameters.AddWithValue("@time",locobj.Time);
+            cmd.Parameters.AddWithValue("@limage", locobj.LocationImage);
             con.Open();
             cmd.ExecuteNonQuery();
         }
 
-        public void UpdateLocation(Location locobj)
+        public void UpdateLocation(LocationImageClass locobj)
         {
             SqlConnection con = new SqlConnection(cs);
             SqlCommand cmd = new SqlCommand("usp_UpdateLocation", con);
@@ -128,6 +173,7 @@ namespace SchoolProject.Database
             cmd.Parameters.AddWithValue("@locationId", locobj.LocationId);
             cmd.Parameters.AddWithValue("@locationName", locobj.LocationName);
             cmd.Parameters.AddWithValue("@locationAddress", locobj.LocationAddress);
+            cmd.Parameters.AddWithValue("@limage", locobj.LocationImage);
             cmd.Parameters.AddWithValue("@update_by", locobj.UpdatedBy);
             //cmd.Parameters.AddWithValue("@date", locobj.Date);
             //cmd.Parameters.AddWithValue("@time", locobj.Time);
@@ -145,44 +191,26 @@ namespace SchoolProject.Database
             cmd.ExecuteNonQuery();
         }
 
-        public string CountStudents()
+        public int CountRegistrationType(string regtype)
         {
             SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("", con);
+            SqlCommand cmd = new SqlCommand("Select Count(StudentId) from tblStudentInfo where RegistrationType=@regType", con);
             cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@regType", regtype);
             con.Open();
-            string id = (string)cmd.ExecuteScalar();
+            int id = (int)cmd.ExecuteScalar();
             return id;
         }
 
-        public string CountFaculty()
+        public string GetLocationNameByLocationId(string locationId)
         {
             SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("", con);
+            SqlCommand cmd = new SqlCommand("Select LocationName from tblLocation where Location_Id =@locationId", con);
             cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@locationId", locationId);
             con.Open();
-            string id = (string)cmd.ExecuteScalar();
-            return id;
-        }
-
-        public string CountSchoolKeeper()
-        {
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("", con);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-            string id = (string)cmd.ExecuteScalar();
-            return id;
-        }
-
-        public string CountGuests()
-        {
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand("", con);
-            cmd.CommandType = CommandType.Text;
-            con.Open();
-            string id = (string)cmd.ExecuteScalar();
-            return id;
+            string locationName = (string)cmd.ExecuteScalar();
+            return locationName;
         }
     }
 }
